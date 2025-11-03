@@ -126,11 +126,16 @@
             }
         }
 
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
         .section {
             background: white;
             border-radius: 15px;
             padding: 30px;
-            margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
@@ -159,16 +164,6 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .podium-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .podium-item:last-child {
-            margin-bottom: 0;
         }
 
         .medal {
@@ -205,23 +200,9 @@
             margin-bottom: 5px;
         }
 
-        .score-podium.gold {
-            color: #f39c12;
-        }
-
-        .score-podium.silver {
-            color: #95a5a6;
-        }
-
-        .score-podium.bronze {
-            color: #e67e22;
-        }
-
-        .score-detail {
-            font-size: 0.85em;
-            color: #95a5a6;
-            font-style: italic;
-        }
+        .score-podium.gold { color: #f39c12; }
+        .score-podium.silver { color: #95a5a6; }
+        .score-podium.bronze { color: #e67e22; }
 
         .leaderboard-table {
             width: 100%;
@@ -242,20 +223,12 @@
             border-bottom: 1px solid #e0e0e0;
         }
 
-        .leaderboard-table tr:hover {
-            background: #f5f5f5;
-        }
-
         .rank {
             font-weight: bold;
             font-size: 1.2em;
             width: 50px;
             text-align: center;
         }
-
-        .rank-1 { color: #FFD700; }
-        .rank-2 { color: #C0C0C0; }
-        .rank-3 { color: #CD7F32; }
 
         .badge {
             display: inline-block;
@@ -270,65 +243,26 @@
         .badge-santana { background: #f5a7a7; color: #8b3a3a; }
         .badge-hendrix { background: #ffc896; color: #8b5a00; }
 
-        .score-cell {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #667eea;
-        }
+        .score-cell { font-weight: bold; font-size: 1.2em; color: #667eea; }
+        .activities { font-size: 0.9em; color: #666; }
 
-        .activities {
-            font-size: 0.9em;
-            color: #666;
-        }
+        footer { text-align: center; color: white; margin-top: 40px; padding: 20px; opacity: 0.9; }
 
-        footer {
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-            padding: 20px;
-            opacity: 0.9;
-        }
+        /* ===== MOBILE ===== */
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr; /* Une seule colonne sur tablettes et smartphones */
+                gap: 20px;
+            }
 
-        .medal {
-            font-size: 1.5em;
-            margin-right: 5px;
+            .section { padding: 20px; }
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-            
-            .leaderboard-table {
-                font-size: 0.9em;
-            }
-            
-            .leaderboard-table th,
-            .leaderboard-table td {
-                padding: 10px 5px;
-            }
-
-            .months-progress {
-                gap: 5px;
-            }
-
-            .month-name {
-                font-size: 0.75em;
-            }
-
-            .month-dot {
-                width: 35px;
-                height: 35px;
-                font-size: 1em;
-            }
-
-            .month-connector {
-                width: 20px;
-            }
+            header h1 { font-size: 2em; }
+            .month-dot { width: 35px; height: 35px; font-size: 1em; }
+            .month-name { font-size: 0.75em; }
+            .leaderboard-table th, .leaderboard-table td { padding: 10px 5px; }
         }
     </style>
 </head>
@@ -370,7 +304,6 @@
                             <div class="score-detail">(169 × ¾)</div>
                         </div>
                     </div>
-                    
                     <div class="podium-item">
                         <div class="medal">🥈</div>
                         <div class="team-info">
@@ -381,7 +314,6 @@
                             <div class="score-podium silver">126</div>
                         </div>
                     </div>
-                    
                     <div class="podium-item">
                         <div class="medal">🥉</div>
                         <div class="team-info">
@@ -398,81 +330,40 @@
             <div class="section">
                 <h2>⭐ Leaderboard des Élèves</h2>
                 <table class="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th>Rang</th>
-                        <th>Pseudo</th>
-                        <th>Équipe</th>
-                        <th>Activités</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="rank rank-1"><span class="medal">🥇</span>1</td>
-                        <td><strong>benoit4929</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">4 Ateliers • 3 Commentaires • 2 Feedbacks</td>
-                        <td class="score-cell">64</td>
-                    </tr>
-                    <tr>
-                        <td class="rank rank-2"><span class="medal">🥈</span>2</td>
-                        <td><strong>gilanc</strong></td>
-                        <td><span class="badge badge-hendrix">Hendrix</span></td>
-                        <td class="activities">4 Ateliers • 1 Commentaire • 1 Feedback</td>
-                        <td class="score-cell">53</td>
-                    </tr>
-                    <tr>
-                        <td class="rank rank-3"><span class="medal">🥉</span>3</td>
-                        <td><strong>Flo</strong></td>
-                        <td><span class="badge badge-santana">Santana</span></td>
-                        <td class="activities">3 Ateliers • 2 Commentaires • 1 Feedback</td>
-                        <td class="score-cell">51</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">4</td>
-                        <td><strong>BBH</strong></td>
-                        <td><span class="badge badge-santana">Santana</span></td>
-                        <td class="activities">4 Ateliers • 0 Commentaire • 1 Feedback</td>
-                        <td class="score-cell">50</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">5</td>
-                        <td><strong>Jubaccon</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">0 Atelier • 2 Commentaires • 2 Feedbacks</td>
-                        <td class="score-cell">36</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">6</td>
-                        <td><strong>jeanphilippe_33400</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">2 Ateliers • 2 Commentaires • 0 Feedback</td>
-                        <td class="score-cell">36</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">7</td>
-                        <td><strong>stephanie49000</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">0 Atelier • 1 Commentaire • 1 Feedback</td>
-                        <td class="score-cell">33</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">8</td>
-                        <td><strong>Loïc</strong></td>
-                        <td><span class="badge badge-hendrix">Hendrix</span></td>
-                        <td class="activities">0 Atelier • 2 Commentaires • 0 Feedback</td>
-                        <td class="score-cell">31</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">9</td>
-                        <td><strong>greg_44607</strong></td>
-                        <td><span class="badge badge-santana">Santana</span></td>
-                        <td class="activities">0 Atelier • 0 Commentaire • 0 Feedback</td>
-                        <td class="score-cell">25</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Pseudo</th>
+                            <th>Équipe</th>
+                            <th>Activités</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rank rank-1"><span class="medal">🥇</span>1</td>
+                            <td><strong>benoit4929</strong></td>
+                            <td><span class="badge badge-clapton">Clapton</span></td>
+                            <td class="activities">4 Ateliers • 3 Commentaires • 2 Feedbacks</td>
+                            <td class="score-cell">64</td>
+                        </tr>
+                        <tr>
+                            <td class="rank rank-2"><span class="medal">🥈</span>2</td>
+                            <td><strong>gilanc</strong></td>
+                            <td><span class="badge badge-hendrix">Hendrix</span></td>
+                            <td class="activities">4 Ateliers • 1 Commentaire • 1 Feedback</td>
+                            <td class="score-cell">53</td>
+                        </tr>
+                        <tr>
+                            <td class="rank rank-3"><span class="medal">🥉</span>3</td>
+                            <td><strong>Flo</strong></td>
+                            <td><span class="badge badge-santana">Santana</span></td>
+                            <td class="activities">3 Ateliers • 2 Commentaires • 1 Feedback</td>
+                            <td class="score-cell">51</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <footer>
