@@ -95,7 +95,6 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
-    align-items: start;
 }
 
 .section {
@@ -173,11 +172,10 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .badge-hendrix { background:#ffc896; color:#8b5a00; }
 
 .score-cell { font-weight:bold; font-size:1.1em; color:#667eea; }
+.activities { font-size:0.8em; color:#666; line-height:1.4em; }
 
-.challenge-list { list-style:none; padding-left:0; margin-top:10px; }
-.challenge-list li { margin-bottom:8px; font-size:0.9em; }
-.challenge-list li a { color:#667eea; text-decoration:none; font-weight:bold; }
-.challenge-list li a:hover { text-decoration:underline; }
+.challenge-list { list-style:none; margin-top:10px; }
+.challenge-list li { margin-bottom:6px; }
 
 footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:0.9; }
 
@@ -212,11 +210,21 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 </header>
 
 <div class="content-grid">
-
     <!-- Colonne de gauche -->
     <div style="display:flex; flex-direction:column; gap:20px;">
-        <!-- Classement des équipes -->
-        <div class="section" style="flex:1;">
+        <!-- Module Défis -->
+        <div class="section">
+            <h2>Défis du mois</h2>
+            <ul class="challenge-list">
+                <li>🎼 <a href="https://youtu.be/I0yyYT1g3Ko" target="_blank">DÉFI MORCEAU</a></li>
+                <li>🎶 <a href="https://youtu.be/xie234gufbk" target="_blank">DÉFI IMPRO</a></li>
+                <li>🤘 <a href="https://youtu.be/IbbQpdhn_bc" target="_blank">DÉFI EXO</a></li>
+                <li>✍️ <a href="https://youtu.be/FNoeVvNc0UU" target="_blank">DÉFI COMPO</a></li>
+            </ul>
+        </div>
+
+        <!-- Module Classement des équipes -->
+        <div class="section">
             <h2>Classement des Équipes</h2>
             <div class="podium-container">
                 <div class="podium-item">
@@ -253,19 +261,21 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
             </div>
         </div>
 
-        <!-- Module Défis du mois -->
-        <div class="section" style="flex:1;">
-            <h2>Défis du mois</h2>
+        <!-- Module Barème de points -->
+        <div class="section">
+            <h2>Barème de points</h2>
             <ul class="challenge-list">
-                <li>🎼 <a href="https://youtu.be/I0yyYT1g3Ko" target="_blank">DÉFI MORCEAU</a></li>
-                <li>🎶 <a href="https://youtu.be/xie234gufbk" target="_blank">DÉFI IMPRO</a></li>
-                <li>🤘 <a href="https://youtu.be/IbbQpdhn_bc" target="_blank">DÉFI EXO</a></li>
-                <li>✍️ <a href="https://youtu.be/FNoeVvNc0UU" target="_blank">DÉFI COMPO</a></li>
+                <li>🎯 Publication vidéo : +20 pts</li>
+                <li>✅ Défi validé : +5 pts</li>
+                <li>🤝 Esprit d'équipe : +3 pts</li>
+                <li>🎓 Atelier Live : +5 pts</li>
+                <li>💻 Commentaire Replay : +3 pts</li>
+                <li>🎬 Feedback vidéo : +5 pts / semaine</li>
             </ul>
         </div>
     </div>
 
-    <!-- Colonne de droite -->
+    <!-- Colonne de droite : Leaderboard -->
     <div class="section">
         <h2>Leaderboard des Élèves</h2>
         <table class="leaderboard-table">
@@ -283,69 +293,113 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td class="rank rank-1">1</td>
                     <td><strong>benoit4929</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
-                    <td>• 4 Ateliers<br>• 3 Commentaires<br>• 2 Feedbacks<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 4 Ateliers<br>
+                        • 3 Commentaires<br>
+                        • 2 Feedbacks<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">64</td>
                 </tr>
                 <tr>
                     <td class="rank rank-2">2</td>
                     <td><strong>gilanc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
-                    <td>• 4 Ateliers<br>• 1 Commentaire<br>• 1 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 4 Ateliers<br>
+                        • 1 Commentaire<br>
+                        • 1 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">53</td>
                 </tr>
                 <tr>
                     <td class="rank rank-3">3</td>
                     <td><strong>Flo</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
-                    <td>• 3 Ateliers<br>• 2 Commentaires<br>• 1 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 3 Ateliers<br>
+                        • 2 Commentaires<br>
+                        • 1 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">51</td>
                 </tr>
                 <tr>
                     <td class="rank">4</td>
                     <td><strong>BBH</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
-                    <td>• 4 Ateliers<br>• 0 Commentaire<br>• 1 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 4 Ateliers<br>
+                        • 0 Commentaire<br>
+                        • 1 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">50</td>
                 </tr>
                 <tr>
                     <td class="rank">5</td>
                     <td><strong>Jubaccon</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
-                    <td>• 0 Atelier<br>• 2 Commentaires<br>• 2 Feedbacks<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 2 Commentaires<br>
+                        • 2 Feedbacks<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">36</td>
                 </tr>
                 <tr>
                     <td class="rank">6</td>
                     <td><strong>jeanphilippe_33400</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
-                    <td>• 2 Ateliers<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 2 Ateliers<br>
+                        • 2 Commentaires<br>
+                        • 0 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">36</td>
                 </tr>
                 <tr>
                     <td class="rank">7</td>
                     <td><strong>stephanie49000</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
-                    <td>• 0 Atelier<br>• 1 Commentaire<br>• 1 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 1 Commentaire<br>
+                        • 1 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">33</td>
                 </tr>
                 <tr>
                     <td class="rank">8</td>
                     <td><strong>Loïc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
-                    <td>• 0 Atelier<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 2 Commentaires<br>
+                        • 0 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">31</td>
                 </tr>
                 <tr>
                     <td class="rank">9</td>
                     <td><strong>greg_44607</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
-                    <td>• 0 Atelier<br>• 0 Commentaire<br>• 0 Feedback<br>• 1 Défi</td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 0 Commentaire<br>
+                        • 0 Feedback<br>
+                        • 1 Défi
+                    </td>
                     <td class="score-cell">25</td>
                 </tr>
             </tbody>
         </table>
     </div>
-
 </div>
 
 <footer>
