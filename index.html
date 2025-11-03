@@ -2,372 +2,393 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeux Guitarisation™ - Saison T4 2025</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=yes">
+<title>Jeux Guitarisation™</title>
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px;
-    }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
 
-    .container { max-width: 1200px; margin: 0 auto; }
+.container { max-width: 1200px; margin: 0 auto; }
 
-    header {
-        text-align: center;
-        color: white;
-        margin-bottom: 40px;
-        padding: 20px;
-    }
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
 
-    header h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        line-height: 1.2;
-    }
+header h1 {
+    font-size: 2.5em;
+    line-height: 1.2;
+    font-weight: bold;
+}
 
-    header .season { font-size: 1.5em; opacity: 0.9; margin-bottom: 25px; }
+header .season { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
 
-    .months-progress {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
+.months-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
 
-    .month-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.month-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 
-    .month-dot {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2em;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
+.month-dot {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
 
-    .month-item.completed .month-dot {
-        background: rgba(168, 213, 168, 0.3);
-        color: #a8d5a8;
-        border: 2px solid #a8d5a8;
-    }
+.month-item.completed .month-dot {
+    background: rgba(168,213,168,0.3);
+    color: #a8d5a8;
+    border: 2px solid #a8d5a8;
+}
 
-    .month-item.current .month-dot {
-        background: rgba(255, 255, 255, 0.3);
-        color: white;
-        border: 3px solid white;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        animation: pulse 2s infinite;
-    }
+.month-item.current .month-dot {
+    background: rgba(255,255,255,0.3);
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    animation: pulse 2s infinite;
+}
 
-    .month-item.upcoming .month-dot {
-        background: rgba(255, 255, 255, 0.1);
-        color: rgba(255, 255, 255, 0.4);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-    }
+.month-item.upcoming .month-dot {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.3);
+}
 
-    .month-name {
-        color: white;
-        font-size: 0.9em;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+.month-name {
+    color: white;
+    font-size: 0.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-    .month-item.completed .month-name { opacity: 0.7; }
-    .month-item.current .month-name { font-weight: bold; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-    .month-item.upcoming .month-name { opacity: 0.5; }
+.month-item.completed .month-name { opacity: 0.7; }
+.month-item.current .month-name { font-weight: bold; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+.month-item.upcoming .month-name { opacity: 0.5; }
 
-    .month-connector { width: 40px; height: 2px; background: rgba(255,255,255,0.3); margin: 0 5px; }
+.month-connector { width: 30px; height: 2px; background: rgba(255,255,255,0.3); margin: 0 3px; }
 
-    @keyframes pulse {
-        0%,100% { box-shadow: 0 0 20px rgba(255,255,255,0.5); }
-        50% { box-shadow: 0 0 30px rgba(255,255,255,0.8); }
-    }
+@keyframes pulse {
+    0%,100% { box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+    50% { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+}
 
-    .content-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-    .section {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        margin-bottom: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+.section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
 
-    .section h2 {
-        color: #667eea;
-        margin-bottom: 25px;
-        font-size: 2em;
-        border-bottom: 3px solid #667eea;
-        padding-bottom: 10px;
-    }
+.section h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
 
-    .podium-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-        border-radius: 15px;
-        background: rgba(255,255,255,0.05);
-        border: 2px solid rgba(255,255,255,0.1);
-        backdrop-filter: blur(10px);
-    }
+.podium-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
 
-    .podium-item {
-        display: flex;
-        align-items: center;
-        padding: 15px;
-        background: rgba(255,255,255,0.95);
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+.podium-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-    .medal { font-size: 2.5em; margin-right: 20px; min-width: 50px; text-align: center; }
+.medal { font-size: 2em; margin-right: 15px; min-width: 50px; text-align: center; }
+.team-info { flex: 1; }
+.team-name-podium { font-size: 1.3em; font-weight: bold; }
+.team-members-podium { font-size: 0.9em; color: #7f8c8d; }
 
-    .team-info { flex: 1; }
-    .team-name-podium { font-size: 1.4em; font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
-    .team-members-podium { font-size: 0.95em; color: #7f8c8d; }
+.score-info { text-align: right; margin-right: 10px; }
+.score-podium { font-size: 1.8em; font-weight: bold; }
+.score-podium.gold { color: #FFD700; }
+.score-podium.silver { color: #C0C0C0; }
+.score-podium.bronze { color: #CD7F32; }
+.score-detail { font-size: 0.8em; color: #95a5a6; font-style: italic; }
 
-    .score-info { text-align: right; margin-right: 10px; }
-    .score-podium { font-size: 2em; font-weight: bold; margin-bottom: 5px; }
-    .score-podium.gold { color: #f39c12; }
-    .score-podium.silver { color: #95a5a6; }
-    .score-podium.bronze { color: #e67e22; }
-    .score-detail { font-size: 0.85em; color: #95a5a6; font-style: italic; }
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
 
-    .leaderboard-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    .leaderboard-table th { background: #667eea; color: white; padding: 15px; text-align: left; font-weight: 600; }
-    .leaderboard-table td { padding: 10px; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+.leaderboard-table th {
+    background: #667eea;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
 
-    .rank { font-weight: bold; font-size: 1.2em; width: 50px; text-align: center; }
-    .rank-1 { color: #FFD700; }
-    .rank-2 { color: #C0C0C0; }
-    .rank-3 { color: #CD7F32; }
+.leaderboard-table td {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+}
 
-    .badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 600; color: white; }
-    .badge-clapton { background: #a8d5a8; color: #2d5f2d; }
-    .badge-santana { background: #f5a7a7; color: #8b3a3a; }
-    .badge-hendrix { background: #ffc896; color: #8b5a00; }
+.rank { font-weight: bold; font-size: 1.2em; width: 40px; text-align: center; }
+.rank-1 { color: #FFD700; }
+.rank-2 { color: #C0C0C0; }
+.rank-3 { color: #CD7F32; }
 
-    .score-cell { font-weight: bold; font-size: 1.2em; color: #667eea; }
-    .activities { font-size: 0.85em; color: #666; line-height: 1.4em; }
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: white;
+}
+.badge-clapton { background: #a8d5a8; color: #2d5f2d; }
+.badge-santana { background: #f5a7a7; color: #8b3a3a; }
+.badge-hendrix { background: #ffc896; color: #8b5a00; }
 
-    footer { text-align: center; color: white; margin-top: 40px; padding: 20px; opacity: 0.9; }
+.score-cell { font-weight: bold; font-size: 1.2em; color: #667eea; }
+.activities { font-size: 0.85em; color: #666; line-height: 1.5em; }
 
-    @media (max-width: 992px) {
-        .content-grid { grid-template-columns: 1fr; }
-    }
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    padding: 20px;
+    opacity: 0.9;
+}
 
-    @media (max-width: 480px) {
-        body { padding: 10px; font-size: 0.9em; }
-        header h1 { font-size: 2em; }
-        header .season { font-size: 1.2em; }
-        .month-dot { width: 30px; height: 30px; font-size: 1em; }
-        .month-name { font-size: 0.7em; }
-        .month-connector { width: 15px; }
-        .section { padding: 15px; }
-        .leaderboard-table th, .leaderboard-table td { padding: 8px 5px; font-size: 0.8em; }
-    }
+@media (max-width: 992px) {
+    .content-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px; font-size: 0.9em; }
+    header h1 { font-size: 1.8em; }
+    .month-dot { width: 28px; height: 28px; font-size: 0.9em; }
+    .month-name { font-size: 0.7em; }
+    .month-connector { width: 12px; }
+    .section { padding: 15px; }
+    .leaderboard-table th, .leaderboard-table td { padding: 6px 3px; font-size: 0.75em; }
+}
 </style>
 </head>
 <body>
 <div class="container">
-    <header>
-        <h1>Les Jeux <span style="color:#FFD700;">Guitarisation™</span> - T4 2025</h1>
-        <div class="season">Quatrième Trimestre 2025</div>
-        <div class="months-progress">
-            <div class="month-item completed">
-                <div class="month-dot">✓</div>
-                <div class="month-name">Octobre</div>
-            </div>
-            <div class="month-connector"></div>
-            <div class="month-item current">
-                <div class="month-dot">●</div>
-                <div class="month-name">Novembre</div>
-            </div>
-            <div class="month-connector"></div>
-            <div class="month-item upcoming">
-                <div class="month-dot">○</div>
-                <div class="month-name">Décembre</div>
-            </div>
+
+<header>
+    <h1>Les Jeux Guitarisation™</h1>
+    <div class="season">Quatrième Trimestre 2025</div>
+    <div class="months-progress">
+        <div class="month-item completed">
+            <div class="month-dot">✓</div>
+            <div class="month-name">Octobre</div>
         </div>
-    </header>
+        <div class="month-connector"></div>
+        <div class="month-item current">
+            <div class="month-dot">●</div>
+            <div class="month-name">Novembre</div>
+        </div>
+        <div class="month-connector"></div>
+        <div class="month-item upcoming">
+            <div class="month-dot">○</div>
+            <div class="month-name">Décembre</div>
+        </div>
+    </div>
+</header>
 
-    <div class="content-grid">
+<div class="content-grid">
 
-        <div class="section">
-            <h2>Classement des Équipes</h2>
-            <div class="podium-container">
-                <div class="podium-item">
-                    <div class="medal">🥇</div>
-                    <div class="team-info">
-                        <div class="team-name-podium">Team Clapton</div>
-                        <div class="team-members-podium">(4 membres)</div>
-                    </div>
-                    <div class="score-info">
-                        <div class="score-podium gold">127</div>
-                        <div class="score-detail">(169 × ¾)</div>
-                    </div>
+    <div class="section">
+        <h2>Classement des Équipes</h2>
+        <div class="podium-container">
+            <div class="podium-item">
+                <div class="medal">🥇</div>
+                <div class="team-info">
+                    <div class="team-name-podium">Team Clapton</div>
+                    <div class="team-members-podium">(4 membres)</div>
                 </div>
-
-                <div class="podium-item">
-                    <div class="medal">🥈</div>
-                    <div class="team-info">
-                        <div class="team-name-podium">Team Santana</div>
-                        <div class="team-members-podium">(3 membres)</div>
-                    </div>
-                    <div class="score-info">
-                        <div class="score-podium silver">126</div>
-                    </div>
+                <div class="score-info">
+                    <div class="score-podium gold">127</div>
+                    <div class="score-detail">(169 × ¾)</div>
                 </div>
-
-                <div class="podium-item">
-                    <div class="medal">🥉</div>
-                    <div class="team-info">
-                        <div class="team-name-podium">Team Hendrix</div>
-                        <div class="team-members-podium">(3 membres)</div>
-                    </div>
-                    <div class="score-info">
-                        <div class="score-podium bronze">84</div>
-                    </div>
+            </div>
+            <div class="podium-item">
+                <div class="medal">🥈</div>
+                <div class="team-info">
+                    <div class="team-name-podium">Team Santana</div>
+                    <div class="team-members-podium">(3 membres)</div>
+                </div>
+                <div class="score-info">
+                    <div class="score-podium silver">126</div>
+                </div>
+            </div>
+            <div class="podium-item">
+                <div class="medal">🥉</div>
+                <div class="team-info">
+                    <div class="team-name-podium">Team Hendrix</div>
+                    <div class="team-members-podium">(3 membres)</div>
+                </div>
+                <div class="score-info">
+                    <div class="score-podium bronze">84</div>
                 </div>
             </div>
         </div>
-
-        <div class="section">
-            <h2>Leaderboard des Élèves</h2>
-            <table class="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th>Rang</th>
-                        <th>Pseudo</th>
-                        <th>Équipe</th>
-                        <th>Activités</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="rank rank-1">1</td>
-                        <td><strong>benoit4929</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">
-                            4 Ateliers<br>
-                            3 Commentaires<br>
-                            2 Feedbacks
-                        </td>
-                        <td class="score-cell">64</td>
-                    </tr>
-                    <tr>
-                        <td class="rank rank-2">2</td>
-                        <td><strong>gilanc</strong></td>
-                        <td><span class="badge badge-hendrix">Hendrix</span></td>
-                        <td class="activities">
-                            4 Ateliers<br>
-                            1 Commentaire<br>
-                            1 Feedback
-                        </td>
-                        <td class="score-cell">53</td>
-                    </tr>
-                    <tr>
-                        <td class="rank rank-3">3</td>
-                        <td><strong>Flo</strong></td>
-                        <td><span class="badge badge-santana">Santana</span></td>
-                        <td class="activities">
-                            3 Ateliers<br>
-                            2 Commentaires<br>
-                            1 Feedback
-                        </td>
-                        <td class="score-cell">51</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">4</td>
-                        <td><strong>BBH</strong></td>
-                        <td><span class="badge badge-santana">Santana</span></td>
-                        <td class="activities">
-                            4 Ateliers<br>
-                            0 Commentaire<br>
-                            1 Feedback
-                        </td>
-                        <td class="score-cell">50</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">5</td>
-                        <td><strong>Jubaccon</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">
-                            0 Atelier<br>
-                            2 Commentaires<br>
-                            2 Feedbacks
-                        </td>
-                        <td class="score-cell">36</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">6</td>
-                        <td><strong>jeanphilippe_33400</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">
-                            2 Ateliers<br>
-                            2 Commentaires<br>
-                            0 Feedback
-                        </td>
-                        <td class="score-cell">36</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">7</td>
-                        <td><strong>stephanie49000</strong></td>
-                        <td><span class="badge badge-clapton">Clapton</span></td>
-                        <td class="activities">
-                            0 Atelier<br>
-                            1 Commentaire<br>
-                            1 Feedback
-                        </td>
-                        <td class="score-cell">33</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">8</td>
-                        <td><strong>Loïc</strong></td>
-                        <td><span class="badge badge-hendrix">Hendrix</span></td>
-                        <td class="activities">
-                            0 Atelier<br>
-                            2 Commentaires<br>
-                            0 Feedback
-                        </td>
-                        <td class="score-cell">31</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">9</td>
-                        <td><strong>greg_44607</strong></td>
-                        <td><span class="badge badge-santana">Santana</span></td>
-                        <td class="activities">
-                            0 Atelier<br>
-                            0 Commentaire<br>
-                            0 Feedback
-                        </td>
-                        <td class="score-cell">25</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
     </div>
 
-    <footer>
-        <p>Continuez à vous surpasser !</p>
-        <p style="margin-top:10px; font-size:0.9em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
-    </footer>
+    <div class="section">
+        <h2>Leaderboard des Élèves</h2>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Pseudo</th>
+                    <th>Équipe</th>
+                    <th>Activités</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="rank rank-1">1</td>
+                    <td><strong>benoit4929</strong></td>
+                    <td><span class="badge badge-clapton">Clapton</span></td>
+                    <td class="activities">
+                        • 4 Ateliers<br>
+                        • 3 Commentaires<br>
+                        • 2 Feedbacks
+                    </td>
+                    <td class="score-cell">64</td>
+                </tr>
+                <tr>
+                    <td class="rank rank-2">2</td>
+                    <td><strong>gilanc</strong></td>
+                    <td><span class="badge badge-hendrix">Hendrix</span></td>
+                    <td class="activities">
+                        • 4 Ateliers<br>
+                        • 1 Commentaire<br>
+                        • 1 Feedback
+                    </td>
+                    <td class="score-cell">53</td>
+                </tr>
+                <tr>
+                    <td class="rank rank-3">3</td>
+                    <td><strong>Flo</strong></td>
+                    <td><span class="badge badge-santana">Santana</span></td>
+                    <td class="activities">
+                        • 3 Ateliers<br>
+                        • 2 Commentaires<br>
+                        • 1 Feedback
+                    </td>
+                    <td class="score-cell">51</td>
+                </tr>
+                <tr>
+                    <td class="rank">4</td>
+                    <td><strong>BBH</strong></td>
+                    <td><span class="badge badge-santana">Santana</span></td>
+                    <td class="activities">
+                        • 4 Ateliers<br>
+                        • 0 Commentaire<br>
+                        • 1 Feedback
+                    </td>
+                    <td class="score-cell">50</td>
+                </tr>
+                <tr>
+                    <td class="rank">5</td>
+                    <td><strong>Jubaccon</strong></td>
+                    <td><span class="badge badge-clapton">Clapton</span></td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 2 Commentaires<br>
+                        • 2 Feedbacks
+                    </td>
+                    <td class="score-cell">36</td>
+                </tr>
+                <tr>
+                    <td class="rank">6</td>
+                    <td><strong>jeanphilippe_33400</strong></td>
+                    <td><span class="badge badge-clapton">Clapton</span></td>
+                    <td class="activities">
+                        • 2 Ateliers<br>
+                        • 2 Commentaires<br>
+                        • 0 Feedback
+                    </td>
+                    <td class="score-cell">36</td>
+                </tr>
+                <tr>
+                    <td class="rank">7</td>
+                    <td><strong>stephanie49000</strong></td>
+                    <td><span class="badge badge-clapton">Clapton</span></td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 1 Commentaire<br>
+                        • 1 Feedback
+                    </td>
+                    <td class="score-cell">33</td>
+                </tr>
+                <tr>
+                    <td class="rank">8</td>
+                    <td><strong>Loïc</strong></td>
+                    <td><span class="badge badge-hendrix">Hendrix</span></td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 2 Commentaires<br>
+                        • 0 Feedback
+                    </td>
+                    <td class="score-cell">31</td>
+                </tr>
+                <tr>
+                    <td class="rank">9</td>
+                    <td><strong>greg_44607</strong></td>
+                    <td><span class="badge badge-santana">Santana</span></td>
+                    <td class="activities">
+                        • 0 Atelier<br>
+                        • 0 Commentaire<br>
+                        • 0 Feedback
+                    </td>
+                    <td class="score-cell">25</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<footer>
+    <p>Continuez à vous surpasser !</p>
+    <p style="margin-top:10px; font-size:0.9em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
+</footer>
+
 </div>
 </body>
 </html>
