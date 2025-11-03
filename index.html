@@ -2,16 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.8, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jeux Guitarisation™</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    padding: 20px;
+    padding: 15px;
     color: #333;
 }
 
@@ -20,35 +19,35 @@ body {
 header {
     text-align: center;
     color: white;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 header h1 {
-    font-size: 2.5em;
-    line-height: 1.2;
+    font-size: 2.2em;
     font-weight: bold;
+    line-height: 1.2;
 }
 
-header .season { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
+header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 
 .months-progress {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin-top:15px;
 }
 
-.month-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.month-item { display:flex; flex-direction:column; align-items:center; gap:3px; }
 
 .month-dot {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
     transition: all 0.3s ease;
 }
 
@@ -60,9 +59,9 @@ header .season { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
 
 .month-item.current .month-dot {
     background: rgba(255,255,255,0.3);
-    color: white;
+    color:white;
     border: 3px solid white;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);
     animation: pulse 2s infinite;
 }
 
@@ -73,133 +72,118 @@ header .season { font-size: 1.2em; opacity: 0.9; margin-top: 10px; }
 }
 
 .month-name {
-    color: white;
-    font-size: 0.8em;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color:white;
+    font-size:0.75em;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-.month-item.completed .month-name { opacity: 0.7; }
-.month-item.current .month-name { font-weight: bold; text-shadow: 0 0 5px rgba(255,255,255,0.5); }
-.month-item.upcoming .month-name { opacity: 0.5; }
+.month-item.completed .month-name { opacity:0.7; }
+.month-item.current .month-name { font-weight:bold; text-shadow:0 0 5px rgba(255,255,255,0.5); }
+.month-item.upcoming .month-name { opacity:0.5; }
 
-.month-connector { width: 30px; height: 2px; background: rgba(255,255,255,0.3); margin: 0 3px; }
+.month-connector { width:25px; height:2px; background: rgba(255,255,255,0.3); margin:0 3px; }
 
 @keyframes pulse {
-    0%,100% { box-shadow: 0 0 15px rgba(255,255,255,0.5); }
-    50% { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
+    0%,100% { box-shadow:0 0 12px rgba(255,255,255,0.5); }
+    50% { box-shadow:0 0 20px rgba(255,255,255,0.8); }
 }
 
 .content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
 .section {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 8px 15px rgba(0,0,0,0.15);
 }
 
 .section h2 {
-    color: #667eea;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    border-bottom: 3px solid #667eea;
-    padding-bottom: 10px;
+    color:#667eea;
+    margin-bottom:15px;
+    font-size:1.7em;
+    border-bottom:2px solid #667eea;
+    padding-bottom:8px;
 }
 
-.podium-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 0;
-}
+.podium-container { display:flex; flex-direction:column; gap:8px; padding:5px 0; }
 
 .podium-item {
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    background: rgba(255,255,255,0.95);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display:flex;
+    align-items:center;
+    padding:10px;
+    background:rgba(255,255,255,0.95);
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.medal { font-size: 2em; margin-right: 15px; min-width: 50px; text-align: center; }
-.team-info { flex: 1; }
-.team-name-podium { font-size: 1.3em; font-weight: bold; }
-.team-members-podium { font-size: 0.9em; color: #7f8c8d; }
+.medal { font-size:1.8em; margin-right:12px; min-width:45px; text-align:center; }
+.team-info { flex:1; }
+.team-name-podium { font-size:1.2em; font-weight:bold; }
+.team-members-podium { font-size:0.85em; color:#7f8c8d; }
 
-.score-info { text-align: right; margin-right: 10px; }
-.score-podium { font-size: 1.8em; font-weight: bold; }
-.score-podium.gold { color: #FFD700; }
-.score-podium.silver { color: #C0C0C0; }
-.score-podium.bronze { color: #CD7F32; }
-.score-detail { font-size: 0.8em; color: #95a5a6; font-style: italic; }
+.score-info { text-align:right; margin-right:8px; }
+.score-podium { font-size:1.5em; font-weight:bold; }
+.score-podium.gold { color:#FFD700; }
+.score-podium.silver { color:#C0C0C0; }
+.score-podium.bronze { color:#CD7F32; }
+.score-detail { font-size:0.75em; color:#95a5a6; font-style:italic; }
 
-.leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
+.leaderboard-table { width:100%; border-collapse:collapse; margin-top:10px; }
 
 .leaderboard-table th {
-    background: #667eea;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    font-weight: 600;
+    background:#667eea;
+    color:white;
+    padding:10px;
+    text-align:left;
+    font-weight:600;
 }
 
 .leaderboard-table td {
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    vertical-align: middle;
+    padding:8px;
+    border-bottom:1px solid #e0e0e0;
+    vertical-align:middle;
 }
 
-.rank { font-weight: bold; font-size: 1.2em; width: 40px; text-align: center; }
-.rank-1 { color: #FFD700; }
-.rank-2 { color: #C0C0C0; }
-.rank-3 { color: #CD7F32; }
+.rank { font-weight:bold; font-size:1.1em; width:40px; text-align:center; }
+.rank-1 { color:#FFD700; }
+.rank-2 { color:#C0C0C0; }
+.rank-3 { color:#CD7F32; }
 
 .badge {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 0.8em;
-    font-weight: 600;
-    color: white;
+    display:inline-block;
+    padding:3px 8px;
+    border-radius:12px;
+    font-size:0.75em;
+    font-weight:600;
+    color:white;
 }
-.badge-clapton { background: #a8d5a8; color: #2d5f2d; }
-.badge-santana { background: #f5a7a7; color: #8b3a3a; }
-.badge-hendrix { background: #ffc896; color: #8b5a00; }
+.badge-clapton { background:#a8d5a8; color:#2d5f2d; }
+.badge-santana { background:#f5a7a7; color:#8b3a3a; }
+.badge-hendrix { background:#ffc896; color:#8b5a00; }
 
-.score-cell { font-weight: bold; font-size: 1.2em; color: #667eea; }
-.activities { font-size: 0.85em; color: #666; line-height: 1.5em; }
+.score-cell { font-weight:bold; font-size:1.1em; color:#667eea; }
+.activities { font-size:0.8em; color:#666; line-height:1.4em; }
 
-footer {
-    text-align: center;
-    color: white;
-    margin-top: 30px;
-    padding: 20px;
-    opacity: 0.9;
+footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:0.9; }
+
+@media (max-width:992px) {
+    .content-grid { grid-template-columns:1fr; }
 }
 
-@media (max-width: 992px) {
-    .content-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-    body { padding: 10px; font-size: 0.9em; }
-    header h1 { font-size: 1.8em; }
-    .month-dot { width: 28px; height: 28px; font-size: 0.9em; }
-    .month-name { font-size: 0.7em; }
-    .month-connector { width: 12px; }
-    .section { padding: 15px; }
-    .leaderboard-table th, .leaderboard-table td { padding: 6px 3px; font-size: 0.75em; }
+@media (max-width:480px) {
+    body { padding:10px; font-size:0.85em; }
+    header h1 { font-size:1.6em; }
+    .month-dot { width:25px; height:25px; font-size:0.8em; }
+    .month-name { font-size:0.65em; }
+    .month-connector { width:10px; }
+    .section { padding:12px; }
+    .leaderboard-table th, .leaderboard-table td { padding:5px 3px; font-size:0.7em; }
 }
 </style>
 </head>
@@ -207,23 +191,14 @@ footer {
 <div class="container">
 
 <header>
-    <h1>Les Jeux Guitarisation™</h1>
+    <h1>Jeux Guitarisation™</h1>
     <div class="season">Quatrième Trimestre 2025</div>
     <div class="months-progress">
-        <div class="month-item completed">
-            <div class="month-dot">✓</div>
-            <div class="month-name">Octobre</div>
-        </div>
+        <div class="month-item completed"><div class="month-dot">✓</div><div class="month-name">Octobre</div></div>
         <div class="month-connector"></div>
-        <div class="month-item current">
-            <div class="month-dot">●</div>
-            <div class="month-name">Novembre</div>
-        </div>
+        <div class="month-item current"><div class="month-dot">●</div><div class="month-name">Novembre</div></div>
         <div class="month-connector"></div>
-        <div class="month-item upcoming">
-            <div class="month-dot">○</div>
-            <div class="month-name">Décembre</div>
-        </div>
+        <div class="month-item upcoming"><div class="month-dot">○</div><div class="month-name">Décembre</div></div>
     </div>
 </header>
 
@@ -386,7 +361,7 @@ footer {
 
 <footer>
     <p>Continuez à vous surpasser !</p>
-    <p style="margin-top:10px; font-size:0.9em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
+    <p style="margin-top:10px; font-size:0.85em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
 </footer>
 
 </div>
