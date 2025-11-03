@@ -16,6 +16,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            font-size: 16px;
         }
 
         .container {
@@ -26,20 +27,20 @@
         header {
             text-align: center;
             color: white;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             padding: 20px;
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 2.8em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         header .season {
-            font-size: 1.5em;
+            font-size: 1.3em;
             opacity: 0.9;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .months-progress {
@@ -47,26 +48,25 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .month-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
         }
 
         .month-dot {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
-            transition: all 0.3s ease;
         }
 
         .month-item.completed .month-dot {
@@ -91,123 +91,104 @@
 
         .month-name {
             color: white;
-            font-size: 0.9em;
+            font-size: 0.85em;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .month-item.completed .month-name {
-            opacity: 0.7;
-        }
-
-        .month-item.current .month-name {
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        .month-item.upcoming .month-name {
-            opacity: 0.5;
-        }
+        .month-item.completed .month-name { opacity: 0.7; }
+        .month-item.current .month-name { font-weight: bold; }
+        .month-item.upcoming .month-name { opacity: 0.5; }
 
         .month-connector {
-            width: 40px;
+            width: 30px;
             height: 2px;
             background: rgba(255, 255, 255, 0.3);
             margin: 0 5px;
         }
 
         @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-            }
+            0%, 100% { box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+            50% { box-shadow: 0 0 25px rgba(255,255,255,0.7); }
         }
 
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 25px;
         }
 
         .section {
             background: white;
             border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .section h2 {
             color: #667eea;
-            margin-bottom: 25px;
-            font-size: 2em;
+            margin-bottom: 20px;
+            font-size: 1.8em;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .podium-container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
             border-radius: 15px;
-            padding: 40px;
-            margin-top: 20px;
-            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin-top: 15px;
+            backdrop-filter: blur(8px);
         }
 
         .podium-item {
             display: flex;
             align-items: center;
-            padding: 25px;
-            margin-bottom: 15px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 18px;
+            margin-bottom: 12px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .podium-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .podium-item:last-child {
-            margin-bottom: 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
         }
 
         .medal {
-            font-size: 2.5em;
-            margin-right: 25px;
-            min-width: 60px;
+            font-size: 2em;
+            margin-right: 18px;
+            min-width: 50px;
             text-align: center;
         }
 
-        .team-info {
-            flex: 1;
-        }
+        .team-info { flex: 1; }
 
         .team-name-podium {
-            font-size: 1.6em;
+            font-size: 1.4em;
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .team-members-podium {
-            font-size: 0.95em;
+            font-size: 0.9em;
             color: #7f8c8d;
         }
 
         .score-info {
             text-align: right;
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
         .score-podium {
-            font-size: 2.2em;
+            font-size: 1.8em;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .score-podium.gold { color: #f39c12; }
@@ -215,7 +196,7 @@
         .score-podium.bronze { color: #e67e22; }
 
         .score-detail {
-            font-size: 0.85em;
+            font-size: 0.8em;
             color: #95a5a6;
             font-style: italic;
         }
@@ -223,40 +204,40 @@
         .leaderboard-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 15px;
+            table-layout: fixed;
+            word-wrap: break-word;
         }
 
         .leaderboard-table th {
             background: #667eea;
             color: white;
-            padding: 15px;
+            padding: 10px;
             text-align: left;
             font-weight: 600;
+            font-size: 0.95em;
         }
 
         .leaderboard-table td {
-            padding: 15px;
+            padding: 8px 10px;
             border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9em;
         }
 
         .leaderboard-table tr:hover { background: #f5f5f5; }
 
         .rank {
             font-weight: bold;
-            font-size: 1.2em;
-            width: 50px;
+            font-size: 1em;
+            width: 30px;
             text-align: center;
         }
 
-        .rank-1 { color: #FFD700; }
-        .rank-2 { color: #C0C0C0; }
-        .rank-3 { color: #CD7F32; }
-
         .badge {
             display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
             font-weight: 600;
             color: white;
         }
@@ -265,40 +246,39 @@
         .badge-santana { background: #f5a7a7; color: #8b3a3a; }
         .badge-hendrix { background: #ffc896; color: #8b5a00; }
 
-        .score-cell {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #667eea;
-        }
-
-        .activities {
-            font-size: 0.9em;
-            color: #666;
-        }
+        .score-cell { font-weight: bold; color: #667eea; }
+        .activities { font-size: 0.85em; color: #666; }
 
         footer {
             text-align: center;
             color: white;
-            margin-top: 40px;
-            padding: 20px;
+            margin-top: 30px;
+            padding: 15px;
             opacity: 0.9;
+            font-size: 0.85em;
         }
 
+        /* Responsive */
         @media (max-width: 1024px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
+            .content-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
+            body { font-size: 14px; }
             header h1 { font-size: 2em; }
-            .section { padding: 20px; }
-            .leaderboard-table { font-size: 0.9em; }
-            .leaderboard-table th, .leaderboard-table td { padding: 10px 5px; }
-            .months-progress { gap: 5px; }
-            .month-name { font-size: 0.75em; }
-            .month-dot { width: 35px; height: 35px; font-size: 1em; }
-            .month-connector { width: 20px; }
+            header .season { font-size: 1.1em; }
+            .section { padding: 15px; }
+            .leaderboard-table th, .leaderboard-table td { font-size: 0.75em; padding: 6px 5px; }
+            .month-dot { width: 30px; height: 30px; font-size: 0.9em; }
+            .month-connector { width: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            body { font-size: 13px; padding: 10px; }
+            .month-dot { width: 25px; height: 25px; font-size: 0.8em; }
+            .section { padding: 12px; }
+            .leaderboard-table th, .leaderboard-table td { font-size: 0.7em; padding: 5px 3px; }
+            .content-grid { gap: 15px; }
         }
     </style>
 </head>
@@ -378,69 +358,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="rank rank-1"><span class="medal">🥇</span>1</td>
-                            <td><strong>benoit4929</strong></td>
-                            <td><span class="badge badge-clapton">Clapton</span></td>
-                            <td class="activities">4 Ateliers • 3 Commentaires • 2 Feedbacks</td>
-                            <td class="score-cell">64</td>
-                        </tr>
-                        <tr>
-                            <td class="rank rank-2"><span class="medal">🥈</span>2</td>
-                            <td><strong>gilanc</strong></td>
-                            <td><span class="badge badge-hendrix">Hendrix</span></td>
-                            <td class="activities">4 Ateliers • 1 Commentaire • 1 Feedback</td>
-                            <td class="score-cell">53</td>
-                        </tr>
-                        <tr>
-                            <td class="rank rank-3"><span class="medal">🥉</span>3</td>
-                            <td><strong>Flo</strong></td>
-                            <td><span class="badge badge-santana">Santana</span></td>
-                            <td class="activities">3 Ateliers • 2 Commentaires • 1 Feedback</td>
-                            <td class="score-cell">51</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">4</td>
-                            <td><strong>BBH</strong></td>
-                            <td><span class="badge badge-santana">Santana</span></td>
-                            <td class="activities">4 Ateliers • 0 Commentaire • 1 Feedback</td>
-                            <td class="score-cell">50</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">5</td>
-                            <td><strong>Jubaccon</strong></td>
-                            <td><span class="badge badge-clapton">Clapton</span></td>
-                            <td class="activities">0 Atelier • 2 Commentaires • 2 Feedbacks</td>
-                            <td class="score-cell">36</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">6</td>
-                            <td><strong>jeanphilippe_33400</strong></td>
-                            <td><span class="badge badge-clapton">Clapton</span></td>
-                            <td class="activities">2 Ateliers • 2 Commentaires • 0 Feedback</td>
-                            <td class="score-cell">36</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">7</td>
-                            <td><strong>stephanie49000</strong></td>
-                            <td><span class="badge badge-clapton">Clapton</span></td>
-                            <td class="activities">0 Atelier • 1 Commentaire • 1 Feedback</td>
-                            <td class="score-cell">33</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">8</td>
-                            <td><strong>Loïc</strong></td>
-                            <td><span class="badge badge-hendrix">Hendrix</span></td>
-                            <td class="activities">0 Atelier • 2 Commentaires • 0 Feedback</td>
-                            <td class="score-cell">31</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">9</td>
-                            <td><strong>greg_44607</strong></td>
-                            <td><span class="badge badge-santana">Santana</span></td>
-                            <td class="activities">0 Atelier • 0 Commentaire • 0 Feedback</td>
-                            <td class="score-cell">25</td>
-                        </tr>
+                        <tr><td class="rank">1</td><td><strong>benoit4929</strong></td><td><span class="badge badge-clapton">Clapton</span></td><td class="activities">4 Ateliers • 3 Commentaires • 2 Feedbacks</td><td class="score-cell">64</td></tr>
+                        <tr><td class="rank">2</td><td><strong>gilanc</strong></td><td><span class="badge badge-hendrix">Hendrix</span></td><td class="activities">4 Ateliers • 1 Commentaire • 1 Feedback</td><td class="score-cell">53</td></tr>
+                        <tr><td class="rank">3</td><td><strong>Flo</strong></td><td><span class="badge badge-santana">Santana</span></td><td class="activities">3 Ateliers • 2 Commentaires • 1 Feedback</td><td class="score-cell">51</td></tr>
+                        <tr><td class="rank">4</td><td><strong>BBH</strong></td><td><span class="badge badge-santana">Santana</span></td><td class="activities">4 Ateliers • 0 Commentaire • 1 Feedback</td><td class="score-cell">50</td></tr>
+                        <tr><td class="rank">5</td><td><strong>Jubaccon</strong></td><td><span class="badge badge-clapton">Clapton</span></td><td class="activities">0 Atelier • 2 Commentaires • 2 Feedbacks</td><td class="score-cell">36</td></tr>
+                        <tr><td class="rank">6</td><td><strong>jeanphilippe_33400</strong></td><td><span class="badge badge-clapton">Clapton</span></td><td class="activities">2 Ateliers • 2 Commentaires • 0 Feedback</td><td class="score-cell">36</td></tr>
+                        <tr><td class="rank">7</td><td><strong>stephanie49000</strong></td><td><span class="badge badge-clapton">Clapton</span></td><td class="activities">0 Atelier • 1 Commentaire • 1 Feedback</td><td class="score-cell">33</td></tr>
+                        <tr><td class="rank">8</td><td><strong>Loïc</strong></td><td><span class="badge badge-hendrix">Hendrix</span></td><td class="activities">0 Atelier • 2 Commentaires • 0 Feedback</td><td class="score-cell">31</td></tr>
+                        <tr><td class="rank">9</td><td><strong>greg_44607</strong></td><td><span class="badge badge-santana">Santana</span></td><td class="activities">0 Atelier • 0 Commentaire • 0 Feedback</td><td class="score-cell">25</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -448,7 +374,7 @@
 
         <footer>
             <p>🎵 Continuez à vous surpasser ! 🎵</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
+            <p style="margin-top: 5px; font-size: 0.85em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
         </footer>
     </div>
 </body>
