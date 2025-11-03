@@ -95,7 +95,6 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
-    align-items: start; /* <-- ici */
 }
 
 .section {
@@ -103,7 +102,6 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     border-radius:12px;
     padding:20px;
     box-shadow:0 8px 15px rgba(0,0,0,0.15);
-    height:auto; /* s'assure que la section prend la hauteur du contenu uniquement */
 }
 
 .section h2 {
@@ -176,6 +174,11 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .score-cell { font-weight:bold; font-size:1.1em; color:#667eea; }
 .activities { font-size:0.8em; color:#666; line-height:1.4em; }
 
+.challenge-list { list-style:none; padding-left:0; margin-top:10px; }
+.challenge-list li { margin-bottom:8px; font-size:0.9em; }
+.challenge-list li a { color:#667eea; text-decoration:none; font-weight:bold; }
+.challenge-list li a:hover { text-decoration:underline; }
+
 footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:0.9; }
 
 @media (max-width:992px) {
@@ -210,7 +213,8 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 
 <div class="content-grid">
 
-    <div class="section">
+    <!-- Classement des équipes -->
+    <div class="section" style="display:flex; flex-direction:column;">
         <h2>Classement des Équipes</h2>
         <div class="podium-container">
             <div class="podium-item">
@@ -247,6 +251,21 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
         </div>
     </div>
 
+    <!-- Module Défis du mois -->
+    <div class="section">
+        <h2>Défis du mois</h2>
+        <p>C’est parti pour les défis du mois d’octobre !<br>
+        👉 1 mois pour travailler ton défi, échanger avec ton équipe et poster ta vidéo preuve.<br>
+        Choisis 1 seul défi parmi les 4 ci-dessous et gagne des points selon le barème.</p>
+        <ul class="challenge-list">
+            <li>🎼 <a href="https://youtu.be/I0yyYT1g3Ko" target="_blank">DÉFI MORCEAU</a></li>
+            <li>🎶 <a href="https://youtu.be/xie234gufbk" target="_blank">DÉFI IMPRO</a></li>
+            <li>🤘 <a href="https://youtu.be/IbbQpdhn_bc" target="_blank">DÉFI EXO</a></li>
+            <li>✍️ <a href="https://youtu.be/FNoeVvNc0UU" target="_blank">DÉFI COMPO</a></li>
+        </ul>
+    </div>
+
+    <!-- Leaderboard des élèves -->
     <div class="section">
         <h2>Leaderboard des Élèves</h2>
         <table class="leaderboard-table">
