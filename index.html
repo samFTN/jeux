@@ -113,6 +113,17 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     text-align: center;
 }
 
+.badge-bonus {
+    font-size: 0.65em;
+    font-weight: 600;
+    background: #FFD700;
+    color: white;
+    text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff;
+    padding: 2px 2px;
+    border-radius: 50%;
+    line-height: 1;
+}
+
 .podium-container { display:flex; flex-direction:column; gap:8px; padding:5px 0; }
 
 .podium-item {
@@ -126,11 +137,11 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 
 .medal { font-size:1.8em; margin-right:12px; min-width:45px; text-align:center; }
 .team-info { flex:1; }
-.team-name-podium { font-size:1.2em; font-weight:bold; }
+.team-name-podium { font-size:1.2em; font-weight:bold; display: inline-flex; align-items: flex-start; gap: 6px;}
 .team-members-podium { font-size:0.85em; color:#7f8c8d; }
 
 .score-info { text-align:right; margin-right:8px; }
-.score-podium { font-size:1.5em; font-weight:bold; }
+.score-podium { font-size:1.5em; font-weight:bold;}
 .score-podium.gold { color:#FFD700; }
 .score-podium.silver { color:#C0C0C0; }
 .score-podium.bronze { color:#CD7F32; }
@@ -274,7 +285,9 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                 <div class="podium-item">
                     <div class="medal">🥇</div>
                     <div class="team-info">
-                        <div class="team-name-podium">Team Clapton</div>
+                        <div class="team-name-podium">Team Clapton
+                            <span class="badge-bonus">🤝</span>
+                        </div>
                         <div class="team-members-podium">(4 membres)</div>
                     </div>
                     <div class="score-info">
@@ -299,7 +312,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                         <div class="team-members-podium">(3 membres)</div>
                     </div>
                     <div class="score-info">
-                        <div class="score-podium bronze">84</div>
+                        <div class="score-podium bronze">120</div>
                     </div>
                 </div>
             </div>
@@ -355,7 +368,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
   <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
   <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
   <a><strong>🎬 Feedback vidéo</strong> : +5 pts (1/semaine max.)</a><br>
-  <a><strong>🤝 Esprit d'équipe</strong> : +3 pts</a>
+  <a><strong>🤝 Bonus Entraide aide</strong> : +3 pts</a>
 </div>
         </div>
     </div>
@@ -430,6 +443,15 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                 </tr>
                 <tr>
                     <td class="rank">7</td>
+                    <td><strong>Nikolaas</strong></td>
+                    <td><span class="badge badge-hendrix">Hendrix</span></td>
+                    <td class="activities">
+                        • 1 Ateliers<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi
+                    </td>
+                    <td class="score-cell">36</td>
+                </tr>
+                <tr>
+                    <td class="rank">8</td>
                     <td><strong>stephanie49000</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
@@ -438,7 +460,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td class="score-cell">33</td>
                 </tr>
                 <tr>
-                    <td class="rank">8</td>
+                    <td class="rank">9</td>
                     <td><strong>Loïc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
                     <td class="activities">
@@ -447,7 +469,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td class="score-cell">31</td>
                 </tr>
                 <tr>
-                    <td class="rank">9</td>
+                    <td class="rank">10</td>
                     <td><strong>greg_44607</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
@@ -462,7 +484,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 
 <footer>
     <p>Continuez à vous surpasser !</p>
-    <p style="margin-top:10px; font-size:0.85em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
+    <p style="margin-top:10px; font-size:0.85em; color: aliceblue;">Les Jeux Guitarisation™ par Samuel Ferton</p>
 </footer>
 
 </div>
