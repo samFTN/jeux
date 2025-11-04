@@ -178,18 +178,18 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .challenge-container {
     display: flex;
     flex-direction: column;
-    gap: 8px; 
-    padding: 5px 0; 
+    gap: 8px; /* espace entre chaque carte comme podium-item */
+    padding: 5px 0; /* léger padding autour */
 }
 
 .challenge-card {
   gap: 6px;
-    display: flex;                 
-  align-items: center;           
-  padding: 15px;                 
-  background: rgba(255,255,255,0.95); 
-  border-radius: 10px;           
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1); 
+    display: flex;                 /* comme podium-item */
+  align-items: center;           /* alignement vertical */
+  padding: 15px;                 /* même padding que podium-item */
+  background: rgba(255,255,255,0.95); /* fond blanc légèrement transparent */
+  border-radius: 10px;           /* coins arrondis */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* ombre comme podium-item */
   font-weight: bold;
   font-size: 1.1em;
   color: #333333;
@@ -200,14 +200,15 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 
 .challenge-card:hover {
   color: #000000;
-  transform: translateX(2px); 
+  transform: translateX(2px); /* léger décalage pour indiquer l’interaction */
 }
 
+/* badge pour le petit icône vidéo */
 .challenge-card .cta-badge {
-  display: inline-flex;        
+  display: inline-flex;        /* pour centrer l’icône */
   align-items: center;
   justify-content: center;
-  margin-left: auto;           
+  margin-left: auto;           /* pousse à droite */
   width: 22px;
   height: 22px;
   background: rgba(237, 240, 254, 0.784);
@@ -217,17 +218,17 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 
 .challenge-card:hover .cta-badge {
   background: rgba(24, 28, 42, 0.1);
-  transform: scale(1.1); 
+  transform: scale(1.1); /* léger effet “pop” au hover */
 }
 
 .challenge-list a {
   display: block;
-  font-weight: normal; 
+  font-weight: normal; /* le reste du texte normal */
   color: #333;
   text-decoration: none;
 }
 .challenge-list a strong {
-  font-weight: bold; 
+  font-weight: bold; /* seulement la partie forte */
 }
 
 footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:0.9; }
@@ -266,7 +267,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
     <!-- Colonne gauche -->
     <div style="display:flex; flex-direction:column; gap:20px;">
 
-        <!-- Module Classement des équipes -->
+          <!-- Module Classement des équipes -->
         <div class="section">
             <h2>Classement des Équipes</h2>
             <div class="podium-container">
@@ -278,82 +279,84 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     </div>
                     <div class="score-info">
                         <div class="score-podium gold">127</div>
-                        <div class="score-detail">(36+36+33+22 ?)</div>
+                        <div class="score-detail">(169 × ¾)</div>
                     </div>
                 </div>
                 <div class="podium-item">
                     <div class="medal">🥈</div>
                     <div class="team-info">
-                        <div class="team-name-podium">Team Hendrix</div>
+                        <div class="team-name-podium">Team Santana</div>
                         <div class="team-members-podium">(3 membres)</div>
                     </div>
                     <div class="score-info">
-                        <div class="score-podium silver">120</div>
+                        <div class="score-podium silver">126</div>
                     </div>
                 </div>
                 <div class="podium-item">
                     <div class="medal">🥉</div>
                     <div class="team-info">
-                        <div class="team-name-podium">Team Santana</div>
+                        <div class="team-name-podium">Team Hendrix</div>
                         <div class="team-members-podium">(3 membres)</div>
                     </div>
                     <div class="score-info">
-                        <div class="score-podium bronze">126</div>
+                        <div class="score-podium bronze">84</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Module Défis -->
-        <div class="section">
-            <h2>Défis du mois</h2>
-            <div class="challenge-container">
-                <a href="https://youtu.be/I0yyYT1g3Ko" target="_blank" class="challenge-card">
-                    <span class="icon">🎼</span> Défi MORCEAU 
-                    <span class="cta-badge">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                    </span>
-                </a>
-                <a href="https://youtu.be/xie234gufbk" target="_blank" class="challenge-card">
-                    <span class="icon">🎶</span> Défi IMPRO 
-                    <span class="cta-badge">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                    </span>
-                </a>
-                <a href="https://youtu.be/IbbQpdhn_bc" target="_blank" class="challenge-card">
-                    <span class="icon">🤘</span> Défi EXO 
-                    <span class="cta-badge">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                    </span>
-                </a>
-                <a href="https://youtu.be/FNoeVvNc0UU" target="_blank" class="challenge-card">
-                    <span class="icon">✍️</span> Défi COMPO 
-                    <span class="cta-badge">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                    </span>
-                </a>
-            </div>
-        </div>
 
+      <!-- Module Défis -->
+<div class="section">
+    <h2>Défis du mois</h2>
+    <div class="challenge-container">
+    <a href="https://youtu.be/I0yyYT1g3Ko" target="_blank" class="challenge-card">
+        <span class="icon">🎼</span> Défi MORCEAU 
+        <span class="cta-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon> <!-- symbole “play” -->
+            </svg>
+        </span>
+    </a>
+    <a href="https://youtu.be/xie234gufbk" target="_blank" class="challenge-card">
+        <span class="icon">🎶</span> Défi IMPRO 
+        <span class="cta-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </span>
+    </a>
+    <a href="https://youtu.be/IbbQpdhn_bc" target="_blank" class="challenge-card">
+        <span class="icon">🤘</span> Défi EXO 
+        <span class="cta-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </span>
+    </a>
+    <a href="https://youtu.be/FNoeVvNc0UU" target="_blank" class="challenge-card">
+        <span class="icon">✍️</span> Défi COMPO 
+        <span class="cta-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+        </span>
+    </a>
+</div>
+</div>
+        
+      
         <!-- Module Barème de points -->
         <div class="section">
             <h2>Barème de points</h2>
-            <div class="challenge-list">
-                <a><strong>🎯 Publication vidéo preuve</strong> : +20 pts</a><br>
-                <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
-                <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
-                <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
-                <a><strong>🎬 Feedback vidéo</strong> : +5 pts (1/semaine max.)</a><br>
-                <a><strong>🤝 Esprit d'équipe</strong> : +3 pts</a>
-            </div>
+           <div class="challenge-list">
+  <a><strong>🎯 Publication vidéo preuve</strong> : +20 pts</a><br>
+  <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
+  <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
+  <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
+  <a><strong>🎬 Feedback vidéo</strong> : +5 pts (1/semaine max.)</a><br>
+  <a><strong>🤝 Esprit d'équipe</strong> : +3 pts</a>
+</div>
         </div>
     </div>
 
@@ -376,7 +379,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>benoit4929</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
-                        • 4 Ateliers<br>• 3 Commentaires<br>• 2 Feedbacks<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 4 Ateliers<br>• 3 Commentaires<br>• 2 Feedbacks<br>• 1 Défi
                     </td>
                     <td class="score-cell">64</td>
                 </tr>
@@ -385,7 +388,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>gilanc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
                     <td class="activities">
-                        • 4 Ateliers<br>• 1 Commentaire<br>• 1 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 4 Ateliers<br>• 1 Commentaire<br>• 1 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">53</td>
                 </tr>
@@ -394,7 +397,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>Flo</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
-                        • 3 Ateliers<br>• 2 Commentaires<br>• 1 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 3 Ateliers<br>• 2 Commentaires<br>• 1 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">51</td>
                 </tr>
@@ -403,7 +406,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>BBH</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
-                        • 4 Ateliers<br>• 0 Commentaire<br>• 1 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 4 Ateliers<br>• 0 Commentaire<br>• 1 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">50</td>
                 </tr>
@@ -412,7 +415,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>Jubaccon</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
-                        • 0 Atelier<br>• 2 Commentaires<br>• 2 Feedbacks<br>• Vidéo preuve : Oui<br>• Validé : Non
+                        • 0 Atelier<br>• 2 Commentaires<br>• 2 Feedbacks<br>• 1 Défi
                     </td>
                     <td class="score-cell">36</td>
                 </tr>
@@ -421,43 +424,34 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>jeanphilippe_33400</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
-                        • 2 Ateliers<br>• 2 Commentaires<br>• 0 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Non
+                        • 2 Ateliers<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">36</td>
                 </tr>
                 <tr>
                     <td class="rank">7</td>
-                    <td><strong>Nikolaas</strong></td>
-                    <td><span class="badge badge-hendrix">Hendrix</span></td>
-                    <td class="activities">
-                        • 1 Atelier<br>• 2 Commentaires<br>• 0 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
-                    </td>
-                    <td class="score-cell">36</td>
-                </tr>
-                <tr>
-                    <td class="rank">8</td>
                     <td><strong>stephanie49000</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
-                        • 0 Atelier<br>• 1 Commentaire<br>• 1 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 0 Atelier<br>• 1 Commentaire<br>• 1 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">33</td>
                 </tr>
                 <tr>
-                    <td class="rank">9</td>
+                    <td class="rank">8</td>
                     <td><strong>Loïc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
                     <td class="activities">
-                        • 0 Atelier<br>• 2 Commentaires<br>• 0 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 0 Atelier<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">31</td>
                 </tr>
                 <tr>
-                    <td class="rank">10</td>
+                    <td class="rank">9</td>
                     <td><strong>greg_44607</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
-                        • 0 Atelier<br>• 0 Commentaire<br>• 0 Feedback<br>• Vidéo preuve : Oui<br>• Validé : Oui
+                        • 0 Atelier<br>• 0 Commentaire<br>• 0 Feedback<br>• 1 Défi
                     </td>
                     <td class="score-cell">25</td>
                 </tr>
@@ -467,7 +461,8 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 </div>
 
 <footer>
-    &copy; 2025 Guitarisation™
+    <p>Continuez à vous surpasser !</p>
+    <p style="margin-top:10px; font-size:0.85em;">Les Jeux Guitarisation™ - Quatrième Trimestre 2025</p>
 </footer>
 
 </div>
