@@ -35,41 +35,9 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:8px;
+    gap:12px;
     margin-top:15px;
-}
-
-.month-item { display:flex; flex-direction:column; align-items:center; gap:3px; }
-
-.month-dot {
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-    transition: all 0.3s ease;
-}
-
-.month-item.completed .month-dot {
-    background: rgba(168,213,168,0.3);
-    color: #a8d5a8;
-    border: 2px solid #a8d5a8;
-}
-
-.month-item.current .month-dot {
-    background: rgba(255,255,255,0.3);
-    color:white;
-    border: 3px solid white;
-    box-shadow: 0 0 12px rgba(255,255,255,0.5);
-    animation: pulse 2s infinite;
-}
-
-.month-item.upcoming .month-dot {
-    background: rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.4);
-    border: 2px solid rgba(255,255,255,0.3);
+    font-size: 20px;
 }
 
 .month-name {
@@ -80,7 +48,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     letter-spacing:1px;
 }
 
-.month-item.completed .month-name { opacity:0.7; }
+.month-item.completed .month-name { opacity:0.5; }
 .month-item.current .month-name { font-weight:bold; text-shadow:0 0 5px rgba(255,255,255,0.5); }
 .month-item.upcoming .month-name { opacity:0.5; }
 
@@ -253,7 +221,6 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 @media (max-width:480px) {
     body { padding:10px; font-size:0.85em; }
     header h1 { font-size:1.6em; }
-    .month-dot { width:25px; height:25px; font-size:0.8em; }
     .month-name { font-size:0.65em; }
     .month-connector { width:10px; }
     .section { padding:12px; }
@@ -268,11 +235,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
     <h1>Jeux Guitarisation™</h1>
     <div class="season">2025 - Trimestre 4</div>
     <div class="months-progress">
-        <div class="month-item completed"><div class="month-dot">✓</div><div class="month-name">Octobre</div></div>
+        <div class="month-item current"><div class="month-name">Octobre</div></div>
         <div class="month-connector"></div>
-        <div class="month-item current"><div class="month-dot">●</div><div class="month-name">Novembre</div></div>
+        <div class="month-item completed"><div class="month-name">Novembre</div></div>
         <div class="month-connector"></div>
-        <div class="month-item upcoming"><div class="month-dot">○</div><div class="month-name">Décembre</div></div>
+        <div class="month-item upcoming"><div class="month-name">Décembre</div></div>
     </div>
 </header>
 
