@@ -175,24 +175,22 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .activities { font-size:0.8em; color:#666; line-height:1.4em; }
 
 .challenge-card {
-  display: inline-block; /* pour que le lien se comporte comme du texte */
-  font-weight: bold;     /* texte en gras */
+  display: inline-block;
+  font-weight: bold;
   font-size: 1.1em;
-  color: #667eea;        /* couleur de lien visible */
-  text-decoration: none; /* pas de soulignement par défaut */
-  margin-bottom: 8px;    /* espacement vertical entre liens */
-  cursor: pointer;       /* indique que c’est cliquable */
-  transition: color 0.2s;
+  color: #667eea;
+  text-decoration: none;
+  margin-bottom: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.2s, text-shadow 0.2s, transform 0.2s;
 }
 
 .challenge-card:hover {
-  color: #333;           /* change la couleur au survol */
-  text-decoration: underline; /* optionnel, montre que c’est un lien */
+  color: #4f6be7; /* teinte un peu plus foncée pour indiquer l'interaction */
+  transform: translateX(2px); /* léger décalage subtil pour suggérer le clic */
 }
-.challenge-card:hover {
-    transform: translateY(-3px);
-    box-shadow:0 6px 12px rgba(0,0,0,0.15);
-}
+
 
 .challenge-card span.icon { font-size:1.5em; }
 
@@ -205,7 +203,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
   border-radius: 6px;
   font-weight: bold;
   font-size: 0.8em;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
 
 .challenge-card:hover .cta-badge {
