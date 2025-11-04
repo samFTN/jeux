@@ -178,7 +178,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
   display: inline-block;
   font-weight: bold;
   font-size: 1.1em;
-  color: #667eea;
+    color: #333333;
   text-decoration: none;
   margin-bottom: 8px;
   position: relative;
@@ -187,7 +187,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 }
 
 .challenge-card:hover {
-  color: #4f6be7; /* teinte un peu plus foncée pour indiquer l'interaction */
+  color: #000000; /* teinte un peu plus foncée pour indiquer l'interaction */
   transform: translateX(2px); /* léger décalage subtil pour suggérer le clic */
 }
 
@@ -197,17 +197,28 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .challenge-card .cta-badge {
   display: inline-block;
   margin-left: auto;
-  background: rgba(102,126,234,0.1);
-  color: #667eea;
+  background: rgba(237, 240, 254, 0.784);
+  color: #6d7189;
   padding: 2px 6px;
   border-radius: 6px;
   font-weight: bold;
   font-size: 0.8em;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s; /* ajout de transform */
 }
 
 .challenge-card:hover .cta-badge {
-  background: rgba(102,126,234,0.3);
+  transform: translateX(6px); /* éloigne la flèche du texte */
+
+}
+
+.challenge-list a {
+  display: block;
+  font-weight: normal; /* le reste du texte normal */
+  color: #333;
+  text-decoration: none;
+}
+.challenge-list a strong {
+  font-weight: bold; /* seulement la partie forte */
 }
 
 footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:0.9; }
@@ -309,14 +320,14 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
         <!-- Module Barème de points -->
         <div class="section">
             <h2>Barème de points</h2>
-            <ul class="challenge-list">
-                <a>🎯 Publication vidéo preuve : +20 pts</a> <br>
-                <a>✅ Défi validé : +5 pts</a> <br>
-                <a>🎓 Participation Atelier Live : +5 pts</a> <br>
-                <a>💻 Commentaire sur Replay : +3 pts</a> <br>
-                <a>🎬 Feedback vidéo : +5 pts (1/semaine max.)</a> <br>
-                <a>🤝 Esprit d'équipe : +3 pts</a> 
-            </ul>
+           <div class="challenge-list">
+  <a><strong>🎯 Publication vidéo preuve</strong> : +20 pts</a><br>
+  <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
+  <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
+  <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
+  <a><strong>🎬 Feedback vidéo</strong> : +5 pts (1/semaine max.)</a><br>
+  <a><strong>🤝 Esprit d'équipe</strong> : +3 pts</a>
+</div>
         </div>
     </div>
 
