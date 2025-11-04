@@ -114,14 +114,16 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 }
 
 .badge-bonus {
+    display: inline-flex;            /* pour centrer le contenu */
+    align-items: center;
+    justify-content: center;
+    width: 16px;                     /* largeur fixe */
+    height: 16px;                    /* hauteur fixe */
     font-size: 0.65em;
-    font-weight: 600;
     background: #FFD700;
     color: white;
     text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff;
-    padding: 2px 2px;
     border-radius: 50%;
-    line-height: 1;
 }
 
 .podium-container { display:flex; flex-direction:column; gap:8px; padding:5px 0; }
