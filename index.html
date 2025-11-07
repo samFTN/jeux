@@ -61,7 +61,8 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .content-grid {
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:20px;
+    gap: 20px;
+    align-items: stretch;
 }
 
 .section {
@@ -69,6 +70,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     border-radius:12px;
     padding:20px;
     box-shadow:0 8px 15px rgba(0,0,0,0.15);
+    height: 100%;
 }
 
 .section h2 {
@@ -227,10 +229,12 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 }
 .tooltip {
   position: relative;
-  left: 25%;
-  display: inline-block;
+  display: flex;              /* permet un centrage facile */
+  justify-content: center;    /* centre horizontalement */
+  align-items: center;        /* centre verticalement */
   cursor: pointer;
   font-size: 1.1em;
+  width: 100%;         /* occupe toute la largeur de la cellule */
 }
 
 .tooltip:hover {
@@ -261,6 +265,16 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+.section.leaderboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section.leaderboard table {
+  flex: 1; /* le tableau s’étire pour remplir la hauteur */
+  width: 100%;
 }
 </style>
 </head>
@@ -378,7 +392,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
     </div>
 
     <!-- Colonne droite : Leaderboard -->
-    <div class="section">
+    <div class="section leaderboard">
         <h2>Leaderboard</h2>
         <table class="leaderboard-table">
             <thead>
