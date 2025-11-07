@@ -225,6 +225,43 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
     .section { padding:12px; }
     .leaderboard-table th, .leaderboard-table td { padding:5px 3px; font-size:0.7em; }
 }
+.tooltip {
+  position: relative;
+  left: 25%;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.tooltip:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 8px;
+  padding: 8px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* au-dessus de la loupe */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -359,7 +396,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>benoit4929</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
-                        • 4 Ateliers<br>• 3 Commentaires<br>• 2 Feedbacks<br>• 1 Défi
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
+                             • 4 Ateliers<br>• 3 Commentaires<br>• 2 Feedbacks<br>• 1 Défi
+                         </span>
+                        </div>
                     </td>
                     <td class="score-cell">64</td>
                 </tr>
@@ -368,7 +409,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>gilanc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 4 Ateliers<br>• 1 Commentaire<br>• 1 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">53</td>
                 </tr>
@@ -377,7 +422,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>Flo</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 3 Ateliers<br>• 2 Commentaires<br>• 1 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">51</td>
                 </tr>
@@ -386,7 +435,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>BBH</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 4 Ateliers<br>• 0 Commentaire<br>• 1 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">50</td>
                 </tr>
@@ -395,7 +448,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>Jubaccon</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 0 Atelier<br>• 2 Commentaires<br>• 2 Feedbacks<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">36</td>
                 </tr>
@@ -404,7 +461,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>jeanphilippe_33400</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 2 Ateliers<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">36</td>
                 </tr>
@@ -413,7 +474,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>Nikolaas</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 1 Ateliers<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">36</td>
                 </tr>
@@ -422,7 +487,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>stephanie49000</strong></td>
                     <td><span class="badge badge-clapton">Clapton</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 0 Atelier<br>• 1 Commentaire<br>• 1 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">33</td>
                 </tr>
@@ -431,7 +500,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>Loïc</strong></td>
                     <td><span class="badge badge-hendrix">Hendrix</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 0 Atelier<br>• 2 Commentaires<br>• 0 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">31</td>
                 </tr>
@@ -440,7 +513,11 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <td><strong>greg_44607</strong></td>
                     <td><span class="badge badge-santana">Santana</span></td>
                     <td class="activities">
+                        <div class="tooltip"> 🔍
+                            <span class="tooltiptext">
                         • 0 Atelier<br>• 0 Commentaire<br>• 0 Feedback<br>• 1 Défi
+                        </span>
+                        </div>
                     </td>
                     <td class="score-cell">25</td>
                 </tr>
