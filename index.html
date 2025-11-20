@@ -266,6 +266,38 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
   visibility: visible;
   opacity: 1;
 }
+
+    .badge-bonus-tooltip {
+  position: relative;
+  display: inline-flex;
+  cursor: help;
+}
+
+.badge-bonus-tooltip .tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  width: 210px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 8px;
+  padding: 8px 10px;
+  position: absolute;
+  z-index: 10;
+  bottom: 130%; 
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 0.75em;
+  line-height: 1.4em;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.badge-bonus-tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 .section.leaderboard {
   height: 100%;
   display: flex;
@@ -305,8 +337,10 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <div class="medal">🥇</div>
                     <div class="team-info">
                         <div class="team-name-podium">Team Clapton
-                            <span class="badge-bonus">🤝</span></span>
-                        </div>
+<span class="badge-bonus-tooltip">
+    <span class="badge-bonus">🤝</span>
+    <span class="tooltiptext">Badge d'entraide : +3 pts</span>
+</span>                        </div>
                         <div class="team-members-podium">(4 membres)</div>
                     </div>
                     <div class="score-info">
@@ -385,8 +419,8 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
   <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
   <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
   <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
-  <a><strong>🎬 Feedback vidéo</strong> : +5 pts (1/semaine max.)</a><br>
-  <a><strong>🤝 Bonus Entraide aide</strong> : +3 pts</a>
+  <a><strong>🎬 Feedback Vidéo</strong> : +5 pts (1/semaine max.)</a><br>
+  <a><strong>🤝 Bonus Entraide</strong> : +3 pts</a>
 </div>
         </div>
     </div>
