@@ -94,6 +94,24 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff;
     border-radius: 50%;
         transform: translateY(-3px);  /* ajuste verticalement le badge */
+    }
+
+.badges-stack {
+    position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+.badges-stack .badge-bonus-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* second badge légèrement décalé */
+.badges-stack .badge-second {
+    transform: translate(12px, 0px);
 }
 
 .podium-container { display:flex; flex-direction:column; gap:8px; padding:5px 0; }
@@ -337,35 +355,41 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <div class="medal">🥇</div>
                     <div class="team-info">
                         <div class="team-name-podium">Team Clapton
-<span class="badge-bonus-tooltip">
-    <span class="badge-bonus">🤝</span>
-    <span class="tooltiptext">Badge d'entraide : +3 pts</span>
+<span class="badges-stack">
+    <span class="badge-bonus-tooltip">
+        <span class="badge-bonus">🤝</span>
+        <span class="tooltiptext">Badge d'entraide : +3 pts</span>
+    </span>
+    <span class="badge-bonus-tooltip badge-second">
+        <span class="badge-bonus">🤝</span>
+        <span class="tooltiptext">Badge d'entraide : +3 pts</span>
+    </span>
 </span>                        </div>
-                        <div class="team-members-podium">(4 membres)</div>
+                        <div class="team-members-podium">(5 membres)</div>
                     </div>
                     <div class="score-info">
-                        <div class="score-podium gold">130</div>
-                        <div class="score-detail">(169 × ¾)</div>
+                        <div class="score-podium gold">221</div>
+                        <div class="score-detail"></div>
                     </div>
                 </div>
                 <div class="podium-item">
                     <div class="medal">🥈</div>
                     <div class="team-info">
                         <div class="team-name-podium">Team Santana</div>
-                        <div class="team-members-podium">(3 membres)</div>
+                        <div class="team-members-podium">(4 membres)</div>
                     </div>
                     <div class="score-info">
-                        <div class="score-podium silver">126</div>
+                        <div class="score-podium silver">172</div>
                     </div>
                 </div>
                 <div class="podium-item">
                     <div class="medal">🥉</div>
                     <div class="team-info">
                         <div class="team-name-podium">Team Hendrix</div>
-                        <div class="team-members-podium">(3 membres)</div>
+                        <div class="team-members-podium">(4 membres)</div>
                     </div>
                     <div class="score-info">
-                        <div class="score-podium bronze">120</div>
+                        <div class="score-podium bronze">145</div>
                     </div>
                 </div>
             </div>
