@@ -19,8 +19,7 @@ body {
 header {
     text-align: center;
     color: white;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
 header h1 {
@@ -53,11 +52,6 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 
 .month-connector { width:25px; height:2px; background: rgba(255,255,255,0.3); margin:0 3px; }
 
-@keyframes pulse {
-    0%,100% { box-shadow:0 0 12px rgba(255,255,255,0.5); }
-    50% { box-shadow:0 0 20px rgba(255,255,255,0.8); }
-}
-
 .content-grid {
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -82,40 +76,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     text-align: center;
 }
 
-.badge-bonus {
-    display: inline-flex;            /* pour centrer le contenu */
-    align-items: center;
-    justify-content: center;
-    width: 18px;                     /* largeur fixe */
-    height: 18px;                    /* hauteur fixe */
-    font-size: 0.65em;
-    background: #FFD700;
-    color: white;
-    text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff;
-    border-radius: 50%;
-        transform: translateY(-3px);  /* ajuste verticalement le badge */
-    }
-
-.badges-stack {
-    position: relative;
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-}
-
-.badges-stack .badge-bonus-tooltip {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-/* second badge légèrement décalé */
-.badges-stack .badge-second {
-    transform: translate(12px, 0px);
-}
-
 .podium-container { display:flex; flex-direction:column; gap:8px; padding:5px 0; }
-
 .podium-item {
     display:flex;
     align-items:center;
@@ -135,10 +96,8 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .score-podium.gold { color:#FFD700; }
 .score-podium.silver { color:#C0C0C0; }
 .score-podium.bronze { color:#CD7F32; }
-.score-detail { font-size:0.75em; color:#95a5a6; font-style:italic; }
 
 .leaderboard-table { width:100%; border-collapse:collapse; margin-top:10px; }
-
 .leaderboard-table th {
     background:#667eea;
     color:white;
@@ -146,15 +105,9 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
     text-align:left;
     font-weight:600;
 }
-
 .leaderboard-table th:first-child { border-radius:8px 0 0 8px; }
 .leaderboard-table th:last-child { border-radius:0 8px 8px 0; }
-
-.leaderboard-table td {
-    padding:8px;
-    border-bottom:1px solid #e0e0e0;
-    vertical-align:middle;
-}
+.leaderboard-table td { padding:8px; border-bottom:1px solid #e0e0e0; vertical-align:middle; }
 
 .rank { font-weight:bold; font-size:1.1em; width:40px; text-align:center; }
 .rank-1 { color:#FFD700; }
@@ -176,67 +129,103 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 .score-cell { font-weight:bold; font-size:1.1em; color:#667eea; }
 .activities { font-size:0.8em; color:#666; line-height:1.4em; }
 
-.challenge-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* espace entre chaque carte comme podium-item */
-    padding: 5px 0; /* léger padding autour */
-}
-
+.challenge-container { display: flex; flex-direction: column; gap: 8px; padding: 5px 0; }
 .challenge-card {
-  gap: 6px;
-    display: flex;                 /* comme podium-item */
-  align-items: center;           /* alignement vertical */
-  padding: 15px;                 /* même padding que podium-item */
-  background: rgba(255,255,255,0.95); /* fond blanc légèrement transparent */
-  border-radius: 10px;           /* coins arrondis */
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* ombre comme podium-item */
-  font-weight: bold;
-  font-size: 1.1em;
-  color: #333333;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.2s, text-shadow 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap:6px;
+    padding: 15px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s, text-shadow 0.2s, transform 0.2s;
 }
-
-.challenge-card:hover {
-  color: #000000;
-transform: scale(1.01)}
-
-/* badge pour le petit icône vidéo */
+.challenge-card:hover { color:#000; transform: scale(1.01);}
 .challenge-card .cta-badge {
-  display: inline-flex;        /* pour centrer l’icône */
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;           /* pousse à droite */
-  width: 22px;
-  height: 22px;
-  background: rgba(237, 240, 254, 0.784);
-  border-radius: 6px;
-  transition: background 0.3s, transform 0.3s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+    width:22px;
+    height:22px;
+    background: rgba(237, 240, 254, 0.784);
+    border-radius:6px;
+    transition: background 0.3s, transform 0.3s;
 }
+.challenge-card:hover .cta-badge { background: rgba(24, 28, 42, 0.1); transform: scale(1.1); }
 
-.challenge-card:hover .cta-badge {
-  background: rgba(24, 28, 42, 0.1);
-  transform: scale(1.1); /* léger effet “pop” au hover */
+.challenge-list a { display:block; font-weight:normal; color:#333; text-decoration:none; }
+.challenge-list a strong { font-weight:bold; }
+
+.tooltip { position: relative; display:flex; justify-content:center; align-items:center; cursor:pointer; font-size:1.1em; width:100%; }
+.tooltip:hover { transform: scale(1.2); transition: transform 0.2s; }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 8px;
+    padding: 8px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+.tooltip:hover .tooltiptext { visibility: visible; opacity: 1; }
 
-.challenge-list a {
-  display: block;
-  font-weight: normal; /* le reste du texte normal */
-  color: #333;
-  text-decoration: none;
+.badge-bonus-tooltip { position: relative; display:inline-flex; cursor:help; }
+.badge-bonus-tooltip .tooltiptext {
+    visibility: hidden;
+    opacity:0;
+    width:210px;
+    background-color:#333;
+    color:#fff;
+    text-align:left;
+    border-radius:8px;
+    padding:8px 10px;
+    position:absolute;
+    z-index:10;
+    bottom:130%;
+    left:50%;
+    transform:translateX(-50%);
+    transition:opacity 0.3s;
+    font-size:0.75em;
+    line-height:1.4em;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
 }
-.challenge-list a strong {
-  font-weight: bold; /* seulement la partie forte */
+.badge-bonus-tooltip:hover .tooltiptext { visibility:visible; opacity:1; }
+
+.badge-bonus {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:18px;
+    height:18px;
+    font-size:0.65em;
+    background:#FFD700;
+    color:white;
+    text-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #fff;
+    border-radius:50%;
+    transform: translateY(-3px);
 }
+.badges-stack { position:relative; display:inline-block; width:18px; height:18px; }
 
-footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:0.9; }
+.section.leaderboard { display:flex; flex-direction:column; height:100%; }
+.section.leaderboard table { flex:1; width:100%; }
 
-@media (max-width:992px) {
-    .content-grid { grid-template-columns:1fr; }
-}
-
+@media (max-width:992px) { .content-grid { grid-template-columns:1fr; } }
 @media (max-width:480px) {
     body { padding:10px; font-size:0.85em; }
     header h1 { font-size:1.6em; }
@@ -244,87 +233,6 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
     .month-connector { width:10px; }
     .section { padding:12px; }
     .leaderboard-table th, .leaderboard-table td { padding:5px 3px; font-size:0.7em; }
-}
-.tooltip {
-  position: relative;
-  display: flex;              /* permet un centrage facile */
-  justify-content: center;    /* centre horizontalement */
-  align-items: center;        /* centre verticalement */
-  cursor: pointer;
-  font-size: 1.1em;
-  width: 100%;         /* occupe toute la largeur de la cellule */
-}
-
-.tooltip:hover {
-  transform: scale(1.2);
-  transition: transform 0.2s;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  border-radius: 8px;
-  padding: 8px 10px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* au-dessus de la loupe */
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 0.8em;
-  line-height: 1.4em;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-    .badge-bonus-tooltip {
-  position: relative;
-  display: inline-flex;
-  cursor: help;
-}
-
-.badge-bonus-tooltip .tooltiptext {
-  visibility: hidden;
-  opacity: 0;
-  width: 210px;
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  border-radius: 8px;
-  padding: 8px 10px;
-  position: absolute;
-  z-index: 10;
-  bottom: 130%; 
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.3s;
-  font-size: 0.75em;
-  line-height: 1.4em;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.badge-bonus-tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-.section.leaderboard {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.section.leaderboard table {
-  flex: 1; /* le tableau s’étire pour remplir la hauteur */
-  width: 100%;
 }
 </style>
 </head>
@@ -347,33 +255,31 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
     <!-- Colonne gauche -->
     <div style="display:flex; flex-direction:column; gap:20px;">
 
-          <!-- Module Classement des équipes -->
+        <!-- Podium -->
         <div class="section">
             <h2>Classement des Équipes</h2>
-            <div class="podium-container">
-               
+            <div class="podium-container"></div>
+        </div>
+
+        <!-- Défis -->
+        <div class="section">
+            <h2>Défis du mois</h2>
+            <div class="challenge-container" id="defis-container"></div>
+        </div>
+
+        <!-- Barème de points -->
+        <div class="section">
+            <h2>Barème de points</h2>
+            <div class="challenge-list">
+                <a><strong>🎯 Publication vidéo preuve</strong> : +20 pts</a><br>
+                <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
+                <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
+                <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
+                <a><strong>🎬 Feedback Vidéo</strong> : +5 pts (1/semaine max.)</a><br>
+                <a><strong>🤝 Bonus Entraide</strong> : +3 pts</a>
             </div>
         </div>
 
-      <!-- Module Défis -->
-<div class="section">
-    <h2>Défis du mois</h2>
-<div class="challenge-container" id="defis-container"></div>
-</div>
-        
-      
-        <!-- Module Barème de points -->
-        <div class="section">
-            <h2>Barème de points</h2>
-           <div class="challenge-list">
-  <a><strong>🎯 Publication vidéo preuve</strong> : +20 pts</a><br>
-  <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
-  <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
-  <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
-  <a><strong>🎬 Feedback Vidéo</strong> : +5 pts (1/semaine max.)</a><br>
-  <a><strong>🤝 Bonus Entraide</strong> : +3 pts</a>
-</div>
-        </div>
     </div>
 
     <!-- Colonne droite : Leaderboard -->
@@ -389,16 +295,18 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
                     <th>Score</th>
                 </tr>
             </thead>
-            <tbody> 
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
+</div>
+
+<footer style="margin-top:40px; padding:15px 0; text-align:center; color:white;">
+    <p style="margin:0; font-size:1em;">Continuez à vous surpasser !</p>
+    <p style="margin-top:5px; font-size:0.85em;">Les Jeux Guitarisation™ par Samuel Ferton</p>
+</footer>
 
 <script>
-// URL CSV publique de ton Google Sheet (export CSV)
-const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=1384291539&single=true&output=csv";
-
-// Convertir CSV en tableau d'objets
+// Fonction utilitaire pour convertir CSV en tableau
 function csvToArray(str, delimiter = ",") {
     const lines = str.trim().split("\n");
     const headers = lines.shift().split(delimiter);
@@ -411,31 +319,26 @@ function csvToArray(str, delimiter = ",") {
     });
 }
 
-// Générer le leaderboard
+// ---------- LEADERBOARD ----------
+const csvLeaderboardUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=1384291539&single=true&output=csv";
 
 function renderLeaderboard(data) {
     const tbody = document.querySelector(".leaderboard-table tbody");
-    tbody.innerHTML = ""; // vide l'existant
+    tbody.innerHTML = "";
+    const getBadgeClass = team => ({
+        clapton:"badge-clapton", santana:"badge-santana", hendrix:"badge-hendrix"
+    }[team.toLowerCase()] || "badge-default");
 
-    function getBadgeClass(team) {
-    switch(team.toLowerCase()) {
-        case "clapton": return "badge-clapton";
-        case "santana": return "badge-santana";
-        case "hendrix": return "badge-hendrix";
-        default: return "badge-default"; // une couleur neutre si équipe inconnue
-    }
-}
-    // Trier par Points décroissant
     data.sort((a,b) => parseInt(b.Points) - parseInt(a.Points));
 
-    data.forEach((player, index) => {
+    data.forEach((player,index) => {
         const tr = document.createElement("tr");
         const rankClass = ["rank-1","rank-2","rank-3"][index] || "";
-
         tr.innerHTML = `
             <td class="rank ${rankClass}">${index+1}</td>
             <td><strong>${player.Nom}</strong></td>
-<td><span class="badge ${getBadgeClass(player.Équipe)}">${player.Équipe}</span></td>            <td class="activities">
+            <td><span class="badge ${getBadgeClass(player.Équipe)}">${player.Équipe}</span></td>
+            <td class="activities">
                 <div class="tooltip"> 🔍
                     <span class="tooltiptext">
                         <strong>${player.Nom} :</strong><br>
@@ -452,86 +355,38 @@ function renderLeaderboard(data) {
     });
 }
 
-// Récupérer le CSV et afficher le leaderboard
-fetch(csvUrl)
-    .then(response => response.text())
-    .then(csvText => {
-        const data = csvToArray(csvText);
-        renderLeaderboard(data);
-    })
-    .catch(err => console.error("Erreur lors du chargement du leaderboard :", err));
-</script>
+fetch(csvLeaderboardUrl)
+    .then(res => res.text())
+    .then(csv => renderLeaderboard(csvToArray(csv)))
+    .catch(err => console.error("Erreur leaderboard :", err));
 
-</div>
-
-
-
-<footer>
-    <p>Continuez à vous surpasser !</p>
-    <p style="margin-top:10px; font-size:0.85em; color: aliceblue;">Les Jeux Guitarisation™ par Samuel Ferton</p>
-</footer>
-
-</div>
-<script>
-// URL CSV publique de ton Google Sheet pour le podium
+// ---------- PODIUM ----------
 const csvPodiumUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=1423073894&single=true&output=csv";
 
-// Convertir CSV en tableau d'objets
-function csvToArray(str, delimiter = ",") {
-    const lines = str.trim().split("\n");
-    const headers = lines.shift().split(delimiter);
-    return lines.map(line => {
-        const values = line.split(delimiter);
-        return headers.reduce((obj, header, i) => {
-            obj[header.trim()] = values[i].trim();
-            return obj;
-        }, {});
-    });
-}
-
-// Classe CSS des scores
-function getScoreClass(index) {
-    return ["gold","silver","bronze"][index] || "";
-}
-
-// Badge couleur selon équipe
-function getBadgeClass(team) {
-    switch(team.toLowerCase()) {
-        case "clapton": return "badge-clapton";
-        case "santana": return "badge-santana";
-        case "hendrix": return "badge-hendrix";
-        default: return "badge-default";
-    }
-}
-
-// Générer le podium
 function renderPodium(data) {
     const podium = document.querySelector(".podium-container");
     podium.innerHTML = "";
 
-    // Assurer que les scores, membres et badges sont numériques
     data.forEach(team => {
-        team.Total = parseInt((team.Total || "0").replace(/,/g,""));
+        team.Total = parseInt(team.Total || "0");
         team.Membres = parseInt(team.Membres || "0");
         team.Badge = parseInt(team.Badge || "0");
     });
 
-    // Trier par score décroissant
     data.sort((a,b) => b.Total - a.Total);
 
     const medals = ["🥇","🥈","🥉"];
 
     data.forEach((team,index) => {
-        // Générer les badges d'entraide
-      let badgesHtml = `<span class="badges-stack">`;
-for(let i=0;i<team.Badge;i++){
-    badgesHtml += `
-        <span class="badge-bonus-tooltip" style="position:absolute; left:${i*12}px; z-index:${i}">
-            <span class="badge-bonus">🤝</span>
-            <span class="tooltiptext">Badge d'entraide : +3 pts</span>
-        </span>`;
-}
-badgesHtml += `</span>`;
+        let badgesHtml = `<span class="badges-stack">`;
+        for(let i=0;i<team.Badge;i++){
+            badgesHtml += `
+            <span class="badge-bonus-tooltip" style="position:absolute; left:${i*12}px; z-index:${i}">
+                <span class="badge-bonus">🤝</span>
+                <span class="tooltiptext">Badge d'entraide : +3 pts</span>
+            </span>`;
+        }
+        badgesHtml += `</span>`;
 
         const div = document.createElement("div");
         div.className = "podium-item";
@@ -549,31 +404,17 @@ badgesHtml += `</span>`;
     });
 }
 
-// Fetch CSV et afficher podium
 fetch(csvPodiumUrl)
     .then(res => res.text())
-    .then(csvText => {
-        const data = csvToArray(csvText);
-        renderPodium(data);
-    })
-    .catch(err => console.error("Erreur lors du chargement du podium :", err));
-// Fonction pour convertir CSV en tableau
-function csvToArray(str, delimiter = ",") {
-    const lines = str.trim().split("\n");
-    const headers = lines.shift().split(delimiter);
-    return lines.map(line => {
-        const values = line.split(delimiter);
-        return headers.reduce((obj, header, i) => {
-            obj[header.trim()] = values[i].trim();
-            return obj;
-        }, {});
-    });
-}
+    .then(csv => renderPodium(csvToArray(csv)))
+    .catch(err => console.error("Erreur podium :", err));
+
+// ---------- DÉFIS ----------
 const csvDefisUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=549182878&single=true&output=csv";
-// Générer les cartes Défis du mois
+
 function renderDefis(data) {
     const container = document.getElementById("defis-container");
-    container.innerHTML = ""; // vide le contenu existant
+    container.innerHTML = "";
 
     data.forEach(defi => {
         const a = document.createElement("a");
@@ -581,7 +422,7 @@ function renderDefis(data) {
         a.target = "_blank";
         a.className = "challenge-card";
         a.innerHTML = `
-            <span class="icon">🎯</span> ${defi.Noms}
+            <span class="icon">👉</span> ${defi.Noms}
             <span class="cta-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -592,14 +433,10 @@ function renderDefis(data) {
     });
 }
 
-// Fetch CSV Défis
 fetch(csvDefisUrl)
     .then(res => res.text())
-    .then(csvText => {
-        const data = csvToArray(csvText);
-        renderDefis(data);
-    })
-    .catch(err => console.error("Erreur lors du chargement des défis :", err));
+    .then(csv => renderDefis(csvToArray(csv)))
+    .catch(err => console.error("Erreur défis :", err));
 </script>
 
 </body>
