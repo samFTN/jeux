@@ -358,40 +358,7 @@ footer { text-align:center; color:white; margin-top:25px; padding:15px; opacity:
       <!-- Module Défis -->
 <div class="section">
     <h2>Défis du mois</h2>
-    <div class="challenge-container">
-    <a href="https://studio.guitarisation.fr/defi-morceau" target="_blank" class="challenge-card">
-        <span class="icon">🎼</span> Défi MORCEAU 
-        <span class="cta-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon> <!-- symbole “play” -->
-            </svg>
-        </span>
-    </a>
-    <a href="https://studio.guitarisation.fr/defi-impro" target="_blank" class="challenge-card">
-        <span class="icon">🎶</span> Défi IMPRO 
-        <span class="cta-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        </span>
-    </a>
-    <a href="https://studio.guitarisation.fr/defi-exo" target="_blank" class="challenge-card">
-        <span class="icon">🤘</span> Défi EXO 
-        <span class="cta-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        </span>
-    </a>
-    <a href="https://studio.guitarisation.fr/defi-compo" target="_blank" class="challenge-card">
-        <span class="icon">✍️</span> Défi COMPO 
-        <span class="cta-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-            </svg>
-        </span>
-    </a>
-</div>
+<div class="challenge-container" id="defis-container"></div>
 </div>
         
       
@@ -590,6 +557,50 @@ fetch(csvPodiumUrl)
         renderPodium(data);
     })
     .catch(err => console.error("Erreur lors du chargement du podium :", err));
+// Fonction pour convertir CSV en tableau
+function csvToArray(str, delimiter = ",") {
+    const lines = str.trim().split("\n");
+    const headers = lines.shift().split(delimiter);
+    return lines.map(line => {
+        const values = line.split(delimiter);
+        return headers.reduce((obj, header, i) => {
+            obj[header.trim()] = values[i].trim();
+            return obj;
+        }, {});
+    });
+}
+const csvDefisUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=549182878&single=true&output=csv";
+// Générer les cartes Défis du mois
+function renderDefis(data) {
+    const container = document.getElementById("defis-container");
+    container.innerHTML = ""; // vide le contenu existant
+
+    data.forEach(defi => {
+        const a = document.createElement("a");
+        a.href = defi.URL;
+        a.target = "_blank";
+        a.className = "challenge-card";
+        a.innerHTML = `
+            <span class="icon">🎯</span> ${defi.Noms}
+            <span class="cta-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+            </span>
+        `;
+        container.appendChild(a);
+    });
+}
+
+// Fetch CSV Défis
+fetch(csvDefisUrl)
+    .then(res => res.text())
+    .then(csvText => {
+        const data = csvToArray(csvText);
+        renderDefis(data);
+    })
+    .catch(err => console.error("Erreur lors du chargement des défis :", err));
 </script>
+
 </body>
 </html>
