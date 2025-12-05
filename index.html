@@ -267,18 +267,11 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
             <div class="challenge-container" id="defis-container"></div>
         </div>
 
-        <!-- Barème de points -->
-        <div class="section">
-            <h2>Barème de points</h2>
-            <div class="challenge-list">
-                <a><strong>🎯 Publication vidéo preuve</strong> : +20 pts</a><br>
-                <a><strong>✅ Défi validé</strong> : +5 pts</a><br>
-                <a><strong>🎓 Participation Atelier Live</strong> : +5 pts</a><br>
-                <a><strong>💻 Commentaire sur Replay</strong> : +3 pts</a><br>
-                <a><strong>🎬 Feedback Vidéo</strong> : +5 pts (1/semaine max.)</a><br>
-                <a><strong>🤝 Bonus Entraide</strong> : +3 pts</a>
-            </div>
-        </div>
+       <!-- Barème de points -->
+<div class="section" style="padding-bottom:0px;"> 
+    <h2>Barème de points</h2>
+    <div class="challenge-list" id="bareme-container"></div>
+</div>
 
     </div>
 
@@ -475,6 +468,26 @@ function updateHeader() {
 
 // Appel au chargement
 updateHeader();
+
+// ---------- BARÈME DE POINTS ----------
+const csvBaremeUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=1387947154&single=true&output=csv";
+
+function renderBareme(data) {
+    const container = document.getElementById("bareme-container");
+    container.innerHTML = ""; // vide le contenu avant de remplir
+
+    data.forEach(item => {
+        const a = document.createElement("a");
+        a.innerHTML = `<strong>${item.Titre}</strong> ${item.Points || ""} ${item.Commentaire || ""}`;
+        container.appendChild(a);
+        container.appendChild(document.createElement("br"));
+    });
+}
+
+fetch(csvBaremeUrl)
+    .then(res => res.text())
+    .then(csv => renderBareme(csvToArray(csv)))
+    .catch(err => console.error("Erreur barème :", err));
 
 </script>
 
