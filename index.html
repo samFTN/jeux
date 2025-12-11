@@ -269,7 +269,7 @@ header .season { font-size: 1.1em; opacity:0.9; margin-top:5px; }
 
        <!-- Barème de points -->
 <div class="section" style="padding-bottom:0px;"> 
-    <h2>Barème de points</h2>
+    <h2>Barème de Points</h2>
     <div class="challenge-list" id="bareme-container"></div>
 </div>
 
@@ -406,18 +406,61 @@ fetch(csvPodiumUrl)
 const csvDefisUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxwfOQ0vuEml32PC-4RXM_wu5XM8Pb38MIh_dHXTE07dfZ2Wgph8jTZy-F2JnjFO3bE94nmEnkb1X/pub?gid=549182878&single=true&output=csv";
 
 function renderDefis(data) {
+    // récupère le container (une seule déclaration)
     const container = document.getElementById("defis-container");
+    if (!container) {
+        console.error("renderDefis: #defis-container introuvable.");
+        return;
+    }
     container.innerHTML = "";
 
+    // defensive : vérifie les données
+    if (!Array.isArray(data) || data.length === 0) {
+        console.warn("renderDefis : pas de données reçues ou CSV vide.");
+        const sectionFallback = container.closest(".section");
+        if (sectionFallback) {
+            const h2f = sectionFallback.querySelector("h2");
+            if (h2f) h2f.textContent = "Défis du mois";
+        }
+        return;
+    }
+
+    // normalisation des en-têtes : retrouve la clé "mois" (insensible à la casse)
+    const headerKeys = Object.keys(data[0] || {});
+    const moisKey = headerKeys.find(k => k && k.toLowerCase().includes("mois")) ||
+                    headerKeys.find(k => k && k.toLowerCase().includes("month"));
+
+    // récupère la première valeur non vide de la colonne mois
+    let mois = "";
+    if (moisKey) {
+        for (const row of data) {
+            if (row[moisKey] && row[moisKey].trim() !== "") {
+                mois = row[moisKey].trim();
+                break;
+            }
+        }
+    } else {
+        console.warn("renderDefis : aucune colonne 'Mois' détectée dans le CSV. En-têtes :", headerKeys);
+    }
+
+    // cible le h2 de la section contenant le container (correction clé)
+    const section = container.closest(".section");
+    const titreDefis = section ? section.querySelector("h2") : document.querySelector(".section h2");
+    if (titreDefis) titreDefis.textContent = mois ? `Défis du mois de ${mois}` : "Défis du mois";
+
+    // affiche les défis (tolère plusieurs noms de colonne possibles)
     data.forEach(defi => {
+        const name = defi.Noms || defi.Nom || defi.Titre || "";
+        const url = defi.URL || "#";
+        if (!name) return; // ignore lignes sans nom
         const a = document.createElement("a");
-        a.href = defi.URL;
+        a.href = url;
         a.target = "_blank";
         a.className = "challenge-card";
         a.innerHTML = `
-            <span class="icon">👉</span> ${defi.Noms}
-            <span class="cta-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <span class="icon">👉</span> ${name}
+            <span class="cta-badge" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
             </span>
