@@ -318,17 +318,27 @@ const csvLeaderboardUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSLxw
 function renderLeaderboard(data) {
     const tbody = document.querySelector(".leaderboard-table tbody");
     tbody.innerHTML = "";
+
     const getBadgeClass = team => ({
-        clapton:"badge-clapton", santana:"badge-santana", hendrix:"badge-hendrix"
+        clapton:"badge-clapton",
+        santana:"badge-santana",
+        hendrix:"badge-hendrix"
     }[team.toLowerCase()] || "badge-default");
 
-    data.sort((a,b) => parseInt(b.Points) - parseInt(a.Points));
+    // Séparation classés / non classés
+    const classes = data
+        .filter(p => parseInt(p.Points) > 0)
+        .sort((a,b) => parseInt(b.Points) - parseInt(a.Points));
 
-    data.forEach((player,index) => {
+    const nonClasses = data.filter(p => parseInt(p.Points) === 0);
+
+    // Affichage des classés
+    classes.forEach((player, index) => {
         const tr = document.createElement("tr");
         const rankClass = ["rank-1","rank-2","rank-3"][index] || "";
+
         tr.innerHTML = `
-            <td class="rank ${rankClass}">${index+1}</td>
+            <td class="rank ${rankClass}">${index + 1}</td>
             <td><strong>${player.Nom}</strong></td>
             <td><span class="badge ${getBadgeClass(player.Équipe)}">${player.Équipe}</span></td>
             <td class="activities">
@@ -342,7 +352,20 @@ function renderLeaderboard(data) {
                     </span>
                 </div>
             </td>
-            <td class="score-cell">${player.Points || 0}</td>
+            <td class="score-cell">${player.Points}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+
+    // Affichage des non classés
+    nonClasses.forEach(player => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td class="rank" style="color:#aaa;">—</td>
+            <td><strong>${player.Nom}</strong></td>
+            <td><span class="badge ${getBadgeClass(player.Équipe)}">${player.Équipe}</span></td>
+            <td class="activities">Non classé</td>
+            <td class="score-cell" style="color:#aaa;">0</td>
         `;
         tbody.appendChild(tr);
     });
