@@ -578,9 +578,12 @@ function renderDefis(data) {
     } else {
         console.warn("renderDefis : aucune colonne 'Mois' détectée dans le CSV. En-têtes :", headerKeys);
     }
+    const monthNames = ["Janvier","Février","Mars","Avril","Mai","Juin",
+                        "Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+    const currentMonth = monthNames[new Date().getMonth()];
     const section = container.closest(".section");
     const titreDefis = section ? section.querySelector("h2") : document.querySelector(".section h2");
-    if (titreDefis) titreDefis.textContent = mois ? `Défis du mois de ${mois}` : "Défis du mois";
+    if (titreDefis) titreDefis.textContent = `Défi du mois de ${currentMonth}`;
     data.forEach(defi => {
         const name = defi.Noms || defi.Nom || defi.Titre || "";
         const url = defi.URL || "#";
